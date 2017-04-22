@@ -1,5 +1,8 @@
 package by.ld38.game.screen.test;
 
+import by.ld38.game.archetype.TestAnimationArchetype;
+import by.ld38.game.component.base.RadPosition;
+import by.ld38.game.component.render.Animation;
 import by.ld38.game.content.AnimationContent;
 import by.ld38.game.input.KeyboardInputProcessor;
 import by.ld38.game.screen.WorldScreen;
@@ -7,6 +10,7 @@ import by.ld38.game.screen.test.item.PlanetItem;
 import by.ld38.game.system.logic.Rad2DecPositionSystem;
 import by.ld38.game.system.logic.RadMovementSystem;
 import by.ld38.game.system.logic.VelocityDeltaSystem;
+import by.ld38.game.system.player.KeyboardPlayerControlSystem;
 import by.ld38.game.system.render.BlankScreenRenderSystem;
 import by.ld38.game.system.render.RenderAnimationSystem;
 import by.ld38.game.system.render.RenderFpsSystem;
@@ -36,14 +40,15 @@ public class TestWorldScreen extends WorldScreen {
                         new RenderFpsSystem(),
                         new RadMovementSystem(),
                         new VelocityDeltaSystem(),
-                        new Rad2DecPositionSystem()
+                        new Rad2DecPositionSystem(),
+                        new KeyboardPlayerControlSystem()
                         ).build();
 
         //return new World(config);
         World world = new World(config);
         createTestAnimation(world);
-        InputProcessor ip = new KeyboardInputProcessor(world);
-        Gdx.input.setInputProcessor(ip);
+        InputProcessor kip = new KeyboardInputProcessor();
+        Gdx.input.setInputProcessor(kip);
         return world;
     }
 
