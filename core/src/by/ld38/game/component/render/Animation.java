@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  * @since 1.0
  */
 public class Animation extends Component {
-    public int currentFrame = 0;
+    public float currentFrame = 0;
     public TextureRegion region = new TextureRegion();
     public AnimationModel model;
 }

@@ -32,8 +32,9 @@ public class RenderAnimationSystem extends IteratingSystem {
     }
 
     private void calc(Animation animation) {
-        if (++animation.currentFrame >= animation.model.getSize()) animation.currentFrame = 0;
-        animation.model.updateRegion(animation.region, animation.currentFrame);
+        animation.currentFrame += animation.model.getSpeed();
+        if (animation.currentFrame >= animation.model.getSize()) animation.currentFrame = 0;
+        animation.model.updateRegion(animation.region, (int) animation.currentFrame);
     }
 
     private void render(Animation animation, Position position) {

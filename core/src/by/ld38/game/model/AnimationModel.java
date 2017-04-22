@@ -17,17 +17,23 @@ public class AnimationModel {
     private int frameWidth;
     private int frameHeight;
     private int sizeInLine;
+    private float speed = 1f;
     private List<Integer> frameList;
 
-    public AnimationModel(Texture texture, int frameWidth, int frameHeight, Integer... frames) {
-        this(texture, frameWidth, frameHeight, Arrays.asList(frames));
+    public AnimationModel(Texture texture, int frameWidth, int frameHeight, float speed, Integer... frames) {
+        this(texture, frameWidth, frameHeight, speed, Arrays.asList(frames));
     }
-    public AnimationModel(Texture texture, int frameWidth, int frameHeight, List<Integer> frameList) {
+
+    public AnimationModel(Texture texture, int frameWidth, int frameHeight, Integer... frames) {
+        this(texture, frameWidth, frameHeight, 1f, Arrays.asList(frames));
+    }
+
+    public AnimationModel(Texture texture, int frameWidth, int frameHeight, float speed, List<Integer> frameList) {
         this.texture = texture;
         this.frameWidth = frameWidth;
         this.frameHeight = frameHeight;
         this.frameList = frameList;
-
+        this.speed = speed;
         sizeInLine = texture.getWidth() / frameWidth;
     }
 
@@ -49,5 +55,9 @@ public class AnimationModel {
 
     public int getFrameHeight() {
         return frameHeight;
+    }
+
+    public float getSpeed() {
+        return speed;
     }
 }
