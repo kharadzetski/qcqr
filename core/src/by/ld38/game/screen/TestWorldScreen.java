@@ -5,6 +5,7 @@ import by.ld38.game.component.render.Animation;
 import by.ld38.game.content.AnimationContent;
 import by.ld38.game.system.render.BlankScreenRenderSystem;
 import by.ld38.game.system.render.RenderAnimationSystem;
+import by.ld38.game.system.render.RenderFpsSystem;
 import by.ld38.game.system.test.TestChangeScreenSystem;
 import com.artemis.Archetype;
 import com.artemis.World;
@@ -26,7 +27,8 @@ public class TestWorldScreen extends WorldScreen {
                 .with(
                         new BlankScreenRenderSystem(),
                         //new TestChangeScreenSystem()
-                        new RenderAnimationSystem()
+                        new RenderAnimationSystem(),
+                        new RenderFpsSystem()
                         ).build();
 
         //return new World(config);
