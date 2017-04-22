@@ -57,8 +57,8 @@ public class TestWorldScreen extends WorldScreen {
     private void createTestAnimation(World world) {
         PlanetItem item = ItemHolder.create(world, PlanetItem.class);
         item.animation.model = AnimationContent.TEST.getModel();
-        item.velocity.radVX = .005f;
-        item.velocity.radVY = .01f;
+        //item.velocity.radVX = .005f;
+        //item.velocity.radVY = .01f;
         item.radPosition.radX = 40f;
         item.radPosition.radX = 60f;
     }

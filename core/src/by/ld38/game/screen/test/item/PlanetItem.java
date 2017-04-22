@@ -3,7 +3,9 @@ package by.ld38.game.screen.test.item;
 import by.ld38.game.component.base.Position;
 import by.ld38.game.component.base.RadPosition;
 import by.ld38.game.component.base.Velocity;
+import by.ld38.game.component.player.Player;
 import by.ld38.game.component.render.Animation;
+import by.ld38.game.component.render.Scale;
 import by.ld38.game.utils.Item;
 import com.artemis.World;
 
@@ -16,6 +18,8 @@ public class PlanetItem extends Item {
     public RadPosition radPosition;
     public Animation animation;
     public Position position;
+    public Scale scale;
+    public Player player;
 
     @Override
     public void create(World world, int id) {
@@ -23,6 +27,8 @@ public class PlanetItem extends Item {
         world.getMapper(RadPosition.class).create(id);
         world.getMapper(Animation.class).create(id);
         world.getMapper(Position.class).create(id);
+        world.getMapper(Scale.class).create(id);
+        world.getMapper(Player.class).create(id);
     }
 
     @Override
@@ -31,6 +37,8 @@ public class PlanetItem extends Item {
         radPosition = world.getMapper(RadPosition.class).get(id);
         animation = world.getMapper(Animation.class).get(id);
         position = world.getMapper(Position.class).get(id);
+        scale = world.getMapper(Scale.class).get(id);
+        player = world.getMapper(Player.class).get(id);
     }
 
 }
