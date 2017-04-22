@@ -19,7 +19,7 @@ allprojects {
 
     version = '1.0'
     ext {
-        appName = "artemisgdx-start"
+        appName = "qcqr"
         gdxVersion = '1.9.6'
         artemisVersion = '2.1.0'
     }
