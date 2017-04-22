@@ -12,7 +12,7 @@ import java.util.Collection;
  * @author SharK729
  * @since 1.0
  */
-public class EntityHelper {
+public abstract class EntityHelper {
     public static void add(World world, int id, Class<? extends Component>... types) {
         add(world, id, Arrays.asList(types));
     }

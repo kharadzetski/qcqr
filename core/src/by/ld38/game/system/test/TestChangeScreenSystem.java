@@ -1,7 +1,7 @@
 package by.ld38.game.system.test;
 
 import by.ld38.game.QcqrGame;
-import by.ld38.game.screen.TestWorldScreen;
+import by.ld38.game.screen.test.TestWorldScreen;
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
 

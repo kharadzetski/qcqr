@@ -1,6 +1,6 @@
 package by.ld38.game;
 
-import by.ld38.game.screen.TestWorldScreen;
+import by.ld38.game.screen.test.TestWorldScreen;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 

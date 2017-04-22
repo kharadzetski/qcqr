@@ -12,7 +12,7 @@ import java.util.Collection;
  * @author SharK729
  * @since 1.0
  */
-public class TransmutateEntity {
+public abstract class TransmutateEntity {
     protected Collection<Class<? extends Component>> getAddTypes() {
         return Arrays.asList();
     }

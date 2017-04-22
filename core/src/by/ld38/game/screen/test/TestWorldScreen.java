@@ -1,18 +1,16 @@
-package by.ld38.game.screen;
+package by.ld38.game.screen.test;
 
-import by.ld38.game.archetype.TestAnimationArchetype;
-import by.ld38.game.component.base.RadPosition;
-import by.ld38.game.component.base.Velocity;
-import by.ld38.game.component.render.Animation;
 import by.ld38.game.content.AnimationContent;
 import by.ld38.game.input.KeyboardInputProcessor;
+import by.ld38.game.screen.WorldScreen;
+import by.ld38.game.screen.test.item.PlanetItem;
 import by.ld38.game.system.logic.Rad2DecPositionSystem;
 import by.ld38.game.system.logic.RadMovementSystem;
 import by.ld38.game.system.logic.VelocityDeltaSystem;
 import by.ld38.game.system.render.BlankScreenRenderSystem;
 import by.ld38.game.system.render.RenderAnimationSystem;
 import by.ld38.game.system.render.RenderFpsSystem;
-import com.artemis.Archetype;
+import by.ld38.game.utils.ItemHolder;
 import com.artemis.World;
 import com.artemis.WorldConfiguration;
 import com.artemis.WorldConfigurationBuilder;
@@ -50,12 +48,11 @@ public class TestWorldScreen extends WorldScreen {
     }
 
     private void createTestAnimation(World world) {
-        Archetype type = TestAnimationArchetype.testAnimation(world);
-        int id = world.create(type);
-        world.getMapper(Animation.class).get(id).model = AnimationContent.TEST.getModel();
-        world.getMapper(Velocity.class).get(id).radVX = .005f;
-        world.getMapper(Velocity.class).get(id).radVY = .01f;
-        world.getMapper(RadPosition.class).get(id).radX = 40f;
-        world.getMapper(RadPosition.class).get(id).radY = 60f;
+        PlanetItem item = ItemHolder.create(world, PlanetItem.class);
+        item.animation.model = AnimationContent.TEST.getModel();
+        item.velocity.radVX = .005f;
+        item.velocity.radVY = .01f;
+        item.radPosition.radX = 40f;
+        item.radPosition.radX = 60f;
     }
 }
