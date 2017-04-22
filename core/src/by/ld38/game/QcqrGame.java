@@ -1,6 +1,8 @@
 package by.ld38.game;
 
+import by.ld38.game.constant.GameEnv;
 import by.ld38.game.screen.WorldScreen;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.HashMap;
@@ -24,9 +26,12 @@ public class QcqrGame {
     private WorldScreen screen;
     public Long tick = 0L;
     public SpriteBatch batch;
+    public OrthographicCamera camera;
 
     public void initialize() {
         batch = new SpriteBatch();
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, GameEnv.SCREEN_WIDTH, GameEnv.SCREEN_HEIGHT);
     }
 
     public void changeScreen(Class<? extends WorldScreen> clsScreen) {
@@ -38,6 +43,5 @@ public class QcqrGame {
     public WorldScreen currentScreen() {
         return screen;
     }
-
 
 }
