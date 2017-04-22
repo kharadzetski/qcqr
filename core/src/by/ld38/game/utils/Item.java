@@ -9,6 +9,7 @@ import com.artemis.World;
 public abstract class Item {
     public int create(World world) {
         int id = world.create();
+        create(world, id);
         select(world, id);
         return id;
     }

@@ -14,7 +14,7 @@ public class ItemHolder {
     public static ItemHolder instance = new ItemHolder();
     public static ItemHolder getInstance() { return instance; }
 
-    public static <T extends Item> T get(World world, int id, Class<T> clz) {
+    public static <T extends Item> T get(World world, Class<T> clz) {
         T item = (T) instance.map.get(clz);
         if (item == null) {
             try {
@@ -26,12 +26,18 @@ public class ItemHolder {
                 e.printStackTrace();
             }
         }
+        return item;
+    }
+
+    public static <T extends Item> T get(World world, int id, Class<T> clz) {
+        T item = get(world, clz);
         item.select(world, id);
         return item;
     }
 
     public static <T extends Item> T create(World world, Class<T> clz) {
-        int id = world.create();
-        return get(world, id, clz);
+        T item = get(world, clz);
+        item.create(world);
+        return item;
     }
 }
