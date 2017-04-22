@@ -1,6 +1,8 @@
 package by.ld38.game.component.base;
 
-public class Velocity {
+import com.artemis.Component;
+
+public class Velocity extends Component {
     private float radVX;
     private float radVY;
 

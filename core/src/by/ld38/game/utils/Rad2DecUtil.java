@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
 public final class Rad2DecUtil {
-    public static Vector3 Rad2Dec (Vector2 radPos , Float radius  )
+    public static Vector3 rad2Dec(Vector2 radPos , Float radius  )
     {
         if (radius == null)
             radius = 1f;
