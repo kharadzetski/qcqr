@@ -6,7 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 /**
- * TODO  plz, describe me
+ * Show FPS;
  *
  * @author SharK729
  * @since 1.0
