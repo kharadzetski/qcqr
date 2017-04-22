@@ -6,7 +6,6 @@ import by.ld38.game.component.render.Animation;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.systems.IteratingSystem;
-import javafx.geometry.Pos;
 
 /**
  * TAnima
@@ -38,6 +37,6 @@ public class RenderAnimationSystem extends IteratingSystem {
     }
 
     private void render(Animation animation, Position position) {
-        QcqrGame.getInstance().batch.draw(animation.region, position.getX(), position.getY());
+        QcqrGame.getInstance().batch.draw(animation.region, position.getRadX(), position.getRadY());
     }
 }
