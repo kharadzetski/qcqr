@@ -4,10 +4,8 @@ import by.ld38.game.component.base.RadPosition;
 import by.ld38.game.component.base.Velocity;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
-import com.artemis.annotations.Wire;
 import com.artemis.systems.IteratingSystem;
 
-@Wire
 public class RadMovementSystem extends IteratingSystem {
 
     private ComponentMapper<Velocity> vm;

@@ -5,11 +5,9 @@ import by.ld38.game.component.base.RadPosition;
 import by.ld38.game.utils.Rad2DecUtil;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
-import com.artemis.annotations.Wire;
 import com.artemis.systems.IteratingSystem;
 import com.badlogic.gdx.math.Vector3;
 
-@Wire
 public class Rad2DecPositionSystem extends IteratingSystem {
 
     private ComponentMapper<RadPosition> rpm;
