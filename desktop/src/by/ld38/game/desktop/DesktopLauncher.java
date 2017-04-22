@@ -1,6 +1,6 @@
 package by.ld38.game.desktop;
 
-import by.ld38.game.QcqrGame;
+import by.ld38.game.QcqrGameAdapter;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
@@ -11,6 +11,6 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 public class DesktopLauncher {
     public static void main(String... arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        new LwjglApplication(new QcqrGame(), config);
+        new LwjglApplication(new QcqrGameAdapter(), config);
     }
 }

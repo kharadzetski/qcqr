@@ -1,24 +1,42 @@
 package by.ld38.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
+import by.ld38.game.screen.WorldScreen;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Main basic class;
+ * Main global game instance:
+ *
+ * Contains batch for rendering
  *
  * @author SharK729
  * @since 1.0
  */
-public class QcqrGame extends ApplicationAdapter {
-    @Override
-    public void create() {
-        super.create();
+public class QcqrGame {
+    private static QcqrGame instance = new QcqrGame();
+    public static QcqrGame getInstance() {
+        return instance;
     }
 
-    @Override
-    public void render() {
-        Gdx.gl.glClearColor(1f, 0f, 0f, 1f);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+    private Map<String, WorldScreen> screenMap = new HashMap<>();
+    private WorldScreen screen;
+    public SpriteBatch batch;
+
+    public void initialize() {
+        batch = new SpriteBatch();
     }
+
+    public void changeScreen(Class<? extends WorldScreen> clsScreen) {
+        screen = screenMap.get(clsScreen.getSimpleName());
+    }
+    public void registerScreen(WorldScreen screen) {
+        screenMap.put(screen.getClass().getSimpleName(), screen);
+    }
+    public WorldScreen currentScreen() {
+        return screen;
+    }
+
+
 }
