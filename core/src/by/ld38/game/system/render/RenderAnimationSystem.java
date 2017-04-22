@@ -37,6 +37,6 @@ public class RenderAnimationSystem extends IteratingSystem {
     }
 
     private void render(Animation animation, Position position) {
-        QcqrGame.getInstance().batch.draw(animation.region, position.getRadX(), position.getRadY());
+        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y);
     }
 }
