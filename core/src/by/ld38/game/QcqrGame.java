@@ -22,6 +22,7 @@ public class QcqrGame {
 
     private Map<String, WorldScreen> screenMap = new HashMap<>();
     private WorldScreen screen;
+    public Long tick = 0L;
     public SpriteBatch batch;
 
     public void initialize() {

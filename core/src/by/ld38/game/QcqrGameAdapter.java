@@ -23,6 +23,7 @@ public class QcqrGameAdapter extends ApplicationAdapter {
 
     @Override
     public void render() {
+        game.tick++;
         game.batch.begin();
         game.currentScreen().render(Gdx.graphics.getDeltaTime());
         game.batch.end();

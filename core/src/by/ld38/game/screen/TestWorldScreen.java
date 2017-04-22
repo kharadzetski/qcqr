@@ -1,7 +1,12 @@
 package by.ld38.game.screen;
 
-import by.ld38.game.system.base.BlankScreenRenderSystem;
+import by.ld38.game.archetype.TestAnimationArchetype;
+import by.ld38.game.component.render.Animation;
+import by.ld38.game.content.AnimationContent;
+import by.ld38.game.system.render.BlankScreenRenderSystem;
+import by.ld38.game.system.render.RenderAnimationSystem;
 import by.ld38.game.system.test.TestChangeScreenSystem;
+import com.artemis.Archetype;
 import com.artemis.World;
 import com.artemis.WorldConfiguration;
 import com.artemis.WorldConfigurationBuilder;
@@ -20,9 +25,19 @@ public class TestWorldScreen extends WorldScreen {
                 //.dependsOn(MyPlugin.class)
                 .with(
                         new BlankScreenRenderSystem(),
-                        new TestChangeScreenSystem()
+                        //new TestChangeScreenSystem()
+                        new RenderAnimationSystem()
                         ).build();
 
-        return new World(config);
+        //return new World(config);
+        World world = new World(config);
+        createTestAnimation(world);
+        return world;
+    }
+
+    private void createTestAnimation(World world) {
+        Archetype type = TestAnimationArchetype.testAnimation(world);
+        int id = world.create(type);
+        world.getMapper(Animation.class).get(id).model = AnimationContent.TEST.getModel();
     }
 }

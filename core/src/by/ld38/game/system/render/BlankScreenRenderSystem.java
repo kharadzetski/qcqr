@@ -1,4 +1,4 @@
-package by.ld38.game.system.base;
+package by.ld38.game.system.render;
 
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
@@ -18,8 +18,7 @@ public class BlankScreenRenderSystem extends BaseEntitySystem {
 
     @Override
     protected void processSystem() {
-        Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+        Gdx.gl.glClearColor(0f, 1f, 0f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //QcqrGame.getInstance().batch.draw();
     }
 }
