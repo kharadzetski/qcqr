@@ -3,24 +3,26 @@ package by.ld38.game.component.base;
 import com.artemis.Component;
 
 public class Position extends Component {
-    private float x;
-    private float y;
+    private float radX;
+    private float radY;
+    int x;
 
-    public Position setX(float x) {
-        this.x = x;
+    public float getRadX() {
+        x = (int) radX;
+        return radX;
+    }
+
+    public Position setRadX(float radX) {
+        this.radX = radX;
         return this;
     }
 
-    public Position setY(float y) {
-        this.y = y;
+    public float getRadY() {
+        return radY;
+    }
+
+    public Position setRadY(float radY) {
+        this.radY = radY;
         return this;
-    }
-
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
     }
 }
