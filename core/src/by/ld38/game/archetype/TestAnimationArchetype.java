@@ -6,6 +6,7 @@ import by.ld38.game.component.base.Velocity;
 import by.ld38.game.component.player.Player;
 import by.ld38.game.component.render.Animation;
 import by.ld38.game.component.render.RenderOrder;
+import by.ld38.game.component.render.Scale;
 import com.artemis.Archetype;
 import com.artemis.ArchetypeBuilder;
 import com.artemis.World;
@@ -25,6 +26,7 @@ public class TestAnimationArchetype {
                 .add(Velocity.class)
                 .add(RadPosition.class)
                 .add(Player.class)
+                .add(Scale.class)
                 .build(world);
         return archetype;
     }

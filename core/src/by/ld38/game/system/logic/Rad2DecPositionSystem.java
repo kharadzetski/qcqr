@@ -26,7 +26,7 @@ public class Rad2DecPositionSystem extends IteratingSystem {
     protected void process(int entityId) {
         RadPosition radPosition = rpm.get(entityId);
         Position position = pm.get(entityId);
-        Vector3 decV3 = Rad2DecUtil.rad2Dec(radPosition.asVector2(), null);
+        Vector3 decV3 = Rad2DecUtil.rad2Dec(radPosition.asVector3());
         position.x = decV3.x;
         position.y = decV3.y;
     }

@@ -4,9 +4,12 @@ import by.ld38.game.QcqrGame;
 import by.ld38.game.component.base.Position;
 import by.ld38.game.component.render.Animation;
 import by.ld38.game.component.render.RenderOrder;
+import by.ld38.game.component.render.Scale;
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
 import com.artemis.ComponentMapper;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,12 +22,13 @@ import java.util.stream.Collectors;
  */
 public class RenderAnimationSystem extends BaseEntitySystem {
     public RenderAnimationSystem() {
-        super(Aspect.all(Animation.class, Position.class, RenderOrder.class));
+        super(Aspect.all(Animation.class, Position.class, RenderOrder.class, Scale.class));
     }
 
     protected ComponentMapper<Animation> mAnimation;
     protected ComponentMapper<Position> mPosition;
     protected ComponentMapper<RenderOrder> mRenderOrder;
+    protected ComponentMapper<Scale> mScale;
 
     @Override
     protected void processSystem() {
@@ -36,12 +40,15 @@ public class RenderAnimationSystem extends BaseEntitySystem {
         list.forEach( this::process );
     }
 
+    private Scale defaultScale = new Scale();
+
     protected void process(int entityId) {
         Animation ani = mAnimation.get(entityId);
         Position position = mPosition.get(entityId);
+        Scale scale = mScale.getSafe(entityId, defaultScale);
 
         calc(ani);
-        render(ani, position);
+        render(ani, position, scale);
     }
 
     private void calc(Animation animation) {
@@ -50,8 +57,20 @@ public class RenderAnimationSystem extends BaseEntitySystem {
         animation.model.updateRegion(animation.region, (int) animation.currentFrame);
     }
 
-    private void render(Animation animation, Position position) {
-        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y);
+    private void render(Animation animation, Position position, Scale scale) {
+        TextureRegion region = animation.region;
+        QcqrGame.getInstance().batch.draw(
+                region,
+                position.x,
+                position.y,
+                region.getRegionWidth() / 2,
+                region.getRegionHeight() / 2,
+                region.getRegionWidth(),
+                region.getRegionHeight(),
+                scale.x,
+                scale.y,
+                0
+        );
     }
 
     private int compareInt(int a, int b) {

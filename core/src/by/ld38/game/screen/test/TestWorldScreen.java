@@ -12,6 +12,7 @@ import by.ld38.game.system.logic.RadMovementSystem;
 import by.ld38.game.system.logic.VelocityDeltaSystem;
 import by.ld38.game.system.player.KeyboardPlayerControlSystem;
 import by.ld38.game.system.render.BlankScreenRenderSystem;
+import by.ld38.game.system.render.RadToScaleSystem;
 import by.ld38.game.system.render.RenderAnimationSystem;
 import by.ld38.game.system.render.RenderFpsSystem;
 import by.ld38.game.utils.ItemHolder;
@@ -41,7 +42,8 @@ public class TestWorldScreen extends WorldScreen {
                         new RadMovementSystem(),
                         new VelocityDeltaSystem(),
                         new Rad2DecPositionSystem(),
-                        new KeyboardPlayerControlSystem()
+                        new KeyboardPlayerControlSystem(),
+                        new RadToScaleSystem()
                         ).build();
 
         //return new World(config);

@@ -16,6 +16,8 @@ public class KeyboardPlayerControlSystem extends IteratingSystem {
         super(Aspect.one(Player.class));
     }
 
+    private float delta = .005f;
+
     @Override
     protected void process(int entityId) {
         try {
@@ -24,16 +26,16 @@ public class KeyboardPlayerControlSystem extends IteratingSystem {
             v.radVY = 0;
             KeyCodesHolder holder = KeyCodesHolder.getInstance();
             if (holder.hasCode(KeyCode.ARROW_UP)) {
-                v.radVY = .05f;
+                v.radVY = delta;
             }
             if (holder.hasCode(KeyCode.ARROW_DOWN)) {
-                v.radVY = -.05f;
+                v.radVY = -delta;
             }
             if (holder.hasCode(KeyCode.ARROW_LEFT)) {
-                v.radVX = -.05f;
+                v.radVX = -delta;
             }
             if (holder.hasCode(KeyCode.ARROW_RIGHT)) {
-                v.radVX = .05f;
+                v.radVX = delta;
             }
         } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println("ERROR. player tagged entity does not have some components");
