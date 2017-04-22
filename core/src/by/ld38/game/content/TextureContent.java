@@ -9,7 +9,8 @@ import com.badlogic.gdx.graphics.Texture;
  * @since 1.0
  */
 public enum TextureContent {
-    TEST("test/test.png")
+    TEST("test/test.png"),
+    CAR_HERO("test/Car_Hero_90x60.png")
 
 
     ;

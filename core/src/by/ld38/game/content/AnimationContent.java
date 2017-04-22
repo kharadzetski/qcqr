@@ -9,7 +9,8 @@ import by.ld38.game.model.AnimationModel;
  * @since 1.0
  */
 public enum AnimationContent {
-    TEST(TextureContent.TEST, 45, 60, 0.2f, 1, 2, 3)
+    TEST(TextureContent.TEST, 45, 60, 0.2f, 1, 2, 3),
+    CAR_HERO(TextureContent.CAR_HERO, 45, 60, 0.3f, 0, 1)
     ;
     private AnimationModel model;
 
