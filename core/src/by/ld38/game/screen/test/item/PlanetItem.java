@@ -29,7 +29,4 @@ public class PlanetItem extends Item {
         animation = world.getMapper(Animation.class).get(id);
     }
 
-
-    public static PlanetItem instance = new PlanetItem();
-    public static PlanetItem getInstance() { return instance; }
 }

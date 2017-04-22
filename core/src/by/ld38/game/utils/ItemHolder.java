@@ -1,7 +1,6 @@
 package by.ld38.game.utils;
 
 import com.artemis.World;
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,9 +1,10 @@
 package by.ld38.game.screen.menu;
 
 import by.ld38.game.screen.WorldScreen;
-import by.ld38.game.screen.common.builder.TextCreator;
+import by.ld38.game.screen.common.TextItem;
 import by.ld38.game.screen.common.components.Text;
 import by.ld38.game.screen.common.system.RenderTextSystem;
+import by.ld38.game.utils.ItemHolder;
 import com.artemis.World;
 import com.artemis.WorldConfiguration;
 import com.artemis.WorldConfigurationBuilder;
@@ -26,9 +27,8 @@ public class MenuWorldScreen extends WorldScreen {
     }
 
     private void demo() {
-        int id = TextCreator.createText(world);
-        Text text = world.getMapper(Text.class).get(id);
-        text.value = "Demo";
+        TextItem item = ItemHolder.create(world, TextItem.class);
+        item.text.value = "Demo";
 
     }
 }
