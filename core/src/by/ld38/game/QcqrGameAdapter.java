@@ -18,6 +18,7 @@ public class QcqrGameAdapter extends ApplicationAdapter {
         game.initialize();
         game.registerScreen(new TestWorldScreen());
         game.changeScreen(TestWorldScreen.class);
+        game.batch.setProjectionMatrix(game.camera.projection); // устанавливаем камеру в позицию по центру
         super.create();
     }
 

@@ -22,7 +22,7 @@ public class RadMovementSystem extends IteratingSystem {
     protected void process(int entityId) {
         Velocity v = vm.get(entityId);
         RadPosition rp = rpm.get(entityId);
-        rp.radX += v.getRadVX();
-        rp.radY += v.getRadVY();
+        rp.radX += v.radVX;
+        rp.radY += v.radVY;
     }
 }

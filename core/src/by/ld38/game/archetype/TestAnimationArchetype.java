@@ -1,6 +1,8 @@
 package by.ld38.game.archetype;
 
 import by.ld38.game.component.base.Position;
+import by.ld38.game.component.base.RadPosition;
+import by.ld38.game.component.base.Velocity;
 import by.ld38.game.component.render.Animation;
 import by.ld38.game.component.render.RenderOrder;
 import com.artemis.Archetype;
@@ -19,6 +21,8 @@ public class TestAnimationArchetype {
                 .add(Animation.class)
                 .add(Position.class)
                 .add(RenderOrder.class)
+                .add(Velocity.class)
+                .add(RadPosition.class)
                 .build(world);
         return archetype;
     }
