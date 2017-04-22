@@ -6,7 +6,9 @@ import by.ld38.game.component.render.Animation;
 import by.ld38.game.content.AnimationContent;
 import by.ld38.game.input.KeyboardInputProcessor;
 import by.ld38.game.screen.WorldScreen;
+import by.ld38.game.screen.common.system.RenderTextSystem;
 import by.ld38.game.screen.test.item.PlanetItem;
+import by.ld38.game.screen.test.system.ShowDebugSystem;
 import by.ld38.game.system.logic.Rad2DecPositionSystem;
 import by.ld38.game.system.logic.RadMovementSystem;
 import by.ld38.game.system.logic.VelocityDeltaSystem;
@@ -43,7 +45,10 @@ public class TestWorldScreen extends WorldScreen {
                         new VelocityDeltaSystem(),
                         new Rad2DecPositionSystem(),
                         new KeyboardPlayerControlSystem(),
-                        new RadToScaleSystem()
+                        new RadToScaleSystem(),
+                        new ShowDebugSystem(),
+                        new RenderTextSystem()
+
                         ).build();
 
         //return new World(config);

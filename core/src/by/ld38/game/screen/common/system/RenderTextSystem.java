@@ -23,5 +23,6 @@ public class RenderTextSystem extends IteratingSystem {
         Position position = world.getMapper(Position.class).get(entityId);
         Text text = world.getMapper(Text.class).get(entityId);
         text.font.draw(QcqrGame.getInstance().batch, text.value, position.x, position.y);
+
     }
 }

@@ -17,7 +17,7 @@ public enum FontContent {
     FontContent(String fontPath, String imagePath) {
         Texture fontTexture = new Texture(Gdx.files.internal(imagePath));
         TextureRegion fontRegion = new TextureRegion(fontTexture);
-        font = new BitmapFont(Gdx.files.internal(fontPath), fontRegion, false);
+        font = new BitmapFont(Gdx.files.internal(fontPath), Gdx.files.internal(imagePath), false);
         font.setUseIntegerPositions(false);
     }
 
