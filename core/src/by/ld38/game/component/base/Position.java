@@ -5,10 +5,8 @@ import com.artemis.Component;
 public class Position extends Component {
     private float radX;
     private float radY;
-    int x;
 
     public float getRadX() {
-        x = (int) radX;
         return radX;
     }
 
