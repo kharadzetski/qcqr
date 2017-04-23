@@ -1,6 +1,6 @@
 package by.ld38.game;
 
-import by.ld38.game.screen.test.TestWorldScreen;
+import by.ld38.game.content.screen.process.GameProcessWorldScreen;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 
@@ -16,8 +16,8 @@ public class QcqrGameAdapter extends ApplicationAdapter {
     @Override
     public void create() {
         game.initialize();
-        game.registerScreen(new TestWorldScreen());
-        game.changeScreen(TestWorldScreen.class);
+        game.registerScreen(new GameProcessWorldScreen());
+        game.changeScreen(GameProcessWorldScreen.class);
         game.batch.setProjectionMatrix(game.camera.projection); // устанавливаем камеру в позицию по центру
         super.create();
     }

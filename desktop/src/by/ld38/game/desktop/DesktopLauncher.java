@@ -1,7 +1,7 @@
 package by.ld38.game.desktop;
 
 import by.ld38.game.QcqrGameAdapter;
-import by.ld38.game.constant.GameEnv;
+import by.ld38.game.content.constant.GameEnv;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 

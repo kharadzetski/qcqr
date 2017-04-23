@@ -1,7 +1,7 @@
 package by.ld38.game;
 
-import by.ld38.game.constant.GameEnv;
-import by.ld38.game.screen.WorldScreen;
+import by.ld38.game.content.constant.GameEnv;
+import by.ld38.game.content.screen.WorldScreen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
