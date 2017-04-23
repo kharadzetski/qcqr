@@ -11,7 +11,6 @@ import by.ld38.game.content.screen.process.item.enemy.VioletEnemyItem;
 import by.ld38.game.content.screen.process.system.player.KeyboardPlanetControlSystem;
 import by.ld38.game.content.screen.process.system.rad.Rad2DecPositionSystem;
 import by.ld38.game.content.screen.process.system.rad.RadMovementSystem;
-import by.ld38.game.content.screen.process.system.rad.RadToScaleSystem;
 import by.ld38.game.content.screen.process.system.VelocityDeltaSystem;
 import by.ld38.game.content.screen.common.system.render.BlankScreenRenderSystem;
 import by.ld38.game.content.screen.common.system.render.RenderAnimationSystem;
@@ -44,7 +43,6 @@ public class GameProcessWorldScreen extends WorldScreen {
                         new VelocityDeltaSystem(),
                         new Rad2DecPositionSystem(),
                         new KeyboardPlayerControlSystem(),
-                        new RadToScaleSystem(),
                         new ShowDebugSystem(),
                         new RenderTextSystem(),
                         new KeyboardPlanetControlSystem())
