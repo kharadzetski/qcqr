@@ -6,4 +6,8 @@ import com.artemis.Component;
  * @author SharK729
  * @since 1.0
  */
-public class Player extends Component { }
+public class Player extends Component {
+
+    public float worldCameraX;
+    public float worldCameraY;
+}
