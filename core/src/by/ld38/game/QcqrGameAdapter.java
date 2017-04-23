@@ -1,8 +1,6 @@
 package by.ld38.game;
 
-import by.ld38.game.content.screen.process.GameProcessWorldScreen;
 import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
 
 /**
  * Main basic class;
@@ -16,8 +14,6 @@ public class QcqrGameAdapter extends ApplicationAdapter {
     @Override
     public void create() {
         game.initialize();
-        game.registerScreen(new GameProcessWorldScreen());
-        game.changeScreen(GameProcessWorldScreen.class);
         game.batch.setProjectionMatrix(game.camera.projection); // устанавливаем камеру в позицию по центру
         super.create();
     }
@@ -26,7 +22,6 @@ public class QcqrGameAdapter extends ApplicationAdapter {
     public void render() {
         game.tick++;
         game.batch.begin();
-        game.currentScreen().render(Gdx.graphics.getDeltaTime());
         game.batch.end();
     }
 }
