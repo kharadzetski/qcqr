@@ -8,6 +8,7 @@ import by.ld38.game.content.screen.process.item.PlanetItem;
 import by.ld38.game.content.screen.process.item.enemy.BlueEnemyItem;
 import by.ld38.game.content.screen.process.item.enemy.GreenEnemyItem;
 import by.ld38.game.content.screen.process.item.enemy.VioletEnemyItem;
+import by.ld38.game.content.screen.process.system.player.KeyboardPlanetControlSystem;
 import by.ld38.game.content.screen.process.system.rad.Rad2DecPositionSystem;
 import by.ld38.game.content.screen.process.system.rad.RadMovementSystem;
 import by.ld38.game.content.screen.process.system.rad.RadToScaleSystem;
@@ -45,7 +46,8 @@ public class GameProcessWorldScreen extends WorldScreen {
                         new KeyboardPlayerControlSystem(),
                         new RadToScaleSystem(),
                         new ShowDebugSystem(),
-                        new RenderTextSystem())
+                        new RenderTextSystem(),
+                        new KeyboardPlanetControlSystem())
                 .build();
         World world = new World(config);
         createTestAnimation(world);
@@ -71,8 +73,16 @@ public class GameProcessWorldScreen extends WorldScreen {
         violetEnemy.radPosition.radX = 20f;
         violetEnemy.radPosition.radY = 30f;
 
-        PlanetItem greenEnemy = ItemHolder.create(world, GreenEnemyItem.class);
-        greenEnemy.radPosition.radX = 10f;
-        greenEnemy.radPosition.radY = 70f;
+        for (int i = 0; i < 20; i ++ ) {
+            for (int j = 0; j < 20; j++) {
+                PlanetItem greenEnemy = ItemHolder.create(world, GreenEnemyItem.class);
+
+                greenEnemy.radPosition.radX = i + 10f;
+                greenEnemy.radPosition.radY = j + 70f;
+            }
+        }
+
+
+        CreatorsEnum.PLANET.create(world);
     }
 }
