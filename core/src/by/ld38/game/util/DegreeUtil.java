@@ -10,4 +10,8 @@ public class DegreeUtil {
     public static float deg2rad(float degree) {
         return (float) (degree * Math.PI / 180);
     }
+
+    public static float rad2dec(float degree) {
+        return (float) (degree / Math.PI * 180);
+    }
 }
