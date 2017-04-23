@@ -19,6 +19,8 @@ public class CarMovement extends IteratingSystem {
         Car car = world.getMapper(Car.class).get(entityId);
         Force force = world.getMapper(Force.class).get(entityId);
 
+
+
         if (car.control.up) { force.y += car.speedForce; }
         if (car.control.down) { force.y -= car.speedForce; }
         if (car.control.right) { force.x += car.speedForce; }
