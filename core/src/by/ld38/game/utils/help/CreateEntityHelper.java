@@ -11,7 +11,7 @@ import java.util.Collection;
  * @author SharK729
  * @since 1.0
  */
-public abstract class NewEntity {
+public abstract class CreateEntityHelper {
     protected abstract Collection<Class<? extends Component>> getTypes();
 
     public int createEntity(World world) {
