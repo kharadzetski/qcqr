@@ -12,6 +12,8 @@ import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.physic.*;
+import by.ld38.game.core.system.rad.MoveRadDirection;
+import by.ld38.game.core.system.rad.Rad2PositionSystem;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
@@ -31,9 +33,12 @@ public class ProcessWorldCreator extends WorldCreator {
                 new MoveObjectSystem(),
                 new CarMovement(),
                 new WorldMovementSystem(),
-                new WorldClosedSystem (),
-                new VirtualCameraFollow(),
-                new VirtualCameraRenderPosition());
+                new Rad2PositionSystem(),
+                new MoveRadDirection()//,
+                //new WorldClosedSystem (),
+                //new VirtualCameraFollow(),
+                //new VirtualCameraRenderPosition()
+        );
     }
 
     @Override
