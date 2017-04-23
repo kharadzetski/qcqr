@@ -18,11 +18,12 @@ public class RadMovementSystem extends IteratingSystem {
     public RadMovementSystem() {
         super(Aspect.all(RadPosition.class, Velocity.class));
     }
-
     @Override
     protected void process(int entityId) {
         Velocity v = vm.get(entityId);
         RadPosition rp = rpm.get(entityId);
+        rp.oldRadX = rp.radX;
+        rp.oldRadY = rp.radY;
         rp.radX += v.radVX;
         rp.radY += v.radVY;
         if (rp.radX > GameEnv.RadMax) {

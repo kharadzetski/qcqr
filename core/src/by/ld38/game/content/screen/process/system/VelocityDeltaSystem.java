@@ -1,6 +1,7 @@
 package by.ld38.game.content.screen.process.system;
 
 import by.ld38.game.content.screen.process.component.Acceleration;
+import by.ld38.game.content.screen.process.component.RadPosition;
 import by.ld38.game.content.screen.process.component.Velocity;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
@@ -10,6 +11,7 @@ public class VelocityDeltaSystem extends IteratingSystem {
 
     private ComponentMapper<Velocity> vm;
     private ComponentMapper<Acceleration> am;
+    private ComponentMapper<RadPosition> rp;
 
     /**
      * Creates a new EntityProcessingSystem.
@@ -25,5 +27,6 @@ public class VelocityDeltaSystem extends IteratingSystem {
         float delta = getWorld().getDelta();
         v.radVX += a.deltaRadX * delta;
         v.radVY += a.deltaRadY * delta;
+
     }
 }
