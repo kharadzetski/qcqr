@@ -10,6 +10,7 @@ import by.ld38.game.core.component.physics.Velocity;
 import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.car.CarMovement;
+import by.ld38.game.core.system.car.RadCarControlSystem;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.rad.MoveRadDirection;
@@ -31,7 +32,8 @@ public class ProcessWorldCreator extends WorldCreator {
                 new TextRenderSystem(),
                 new KeyboardCardControlSystem(),
                 new MoveObjectSystem(),
-                new CarMovement(),
+                //new CarMovement(),
+                new RadCarControlSystem(),
                 new WorldMovementSystem(),
                 new Rad2PositionSystem(),
                 new MoveRadDirection()//,
