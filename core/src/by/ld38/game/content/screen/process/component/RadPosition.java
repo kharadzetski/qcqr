@@ -7,6 +7,10 @@ public class RadPosition extends Component {
     public float radX;
     public float radY;
     public float radZ = 425f;
+    public float oldRadX;
+    public float oldRadY;
+    public boolean throughPole;
+
     private Vector3 vector = new Vector3();
 
     public Vector3 asVector3() {

@@ -18,4 +18,16 @@ public class CarControl extends Component {
         up = false;
         down = false;
     }
+    public boolean isAny()
+    {
+        return left||right||up||down;
+    }
+    public boolean isAnyX()
+    {
+        return left||right;
+    }
+    public boolean isAnyY()
+    {
+        return up||down;
+    }
 }
