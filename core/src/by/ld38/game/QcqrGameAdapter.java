@@ -22,6 +22,7 @@ public class QcqrGameAdapter extends ApplicationAdapter {
     public void render() {
         game.tick++;
         game.batch.begin();
+        game.world.process();
         game.batch.end();
     }
 }
