@@ -6,7 +6,6 @@ import by.ld38.game.content.screen.process.component.RadPosition;
 import com.artemis.Aspect;
 import com.artemis.BaseSystem;
 import com.artemis.EntitySubscription;
-import com.artemis.systems.IteratingSystem;
 import com.artemis.utils.IntBag;
 
 /**
@@ -20,9 +19,8 @@ public class PlanetAngleByPlayer extends BaseSystem {
     protected void processSystem() {
         Planet planet = getPlanet();
         RadPosition player = getPlayerRadPosition();
-        //planet.pos = plaery.pos angle
         planet.alpha = - player.radX;
-        planet.beta = (float) (player.radY ) + 1.5f;
+        planet.beta = (player.radY ) + 1.5f;
 
     }
 

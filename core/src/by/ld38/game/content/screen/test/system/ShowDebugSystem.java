@@ -1,5 +1,6 @@
 package by.ld38.game.content.screen.test.system;
 
+import by.ld38.game.content.screen.process.component.Player;
 import by.ld38.game.content.screen.process.component.RadPosition;
 import by.ld38.game.content.screen.process.component.Velocity;
 import by.ld38.game.content.screen.common.TextItem;
@@ -18,7 +19,7 @@ public class ShowDebugSystem extends IteratingSystem {
     private Text debugText;
 
     public ShowDebugSystem() {
-        super(Aspect.all(RadPosition.class, Velocity.class));
+        super(Aspect.all(RadPosition.class, Velocity.class, Player.class));
 
 
     }
