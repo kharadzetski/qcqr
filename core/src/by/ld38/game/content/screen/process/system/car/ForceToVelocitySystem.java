@@ -22,5 +22,6 @@ public class ForceToVelocitySystem extends IteratingSystem {
         Velocity v = world.getMapper(Velocity.class).get(entityId);
         v.radVX += f.a;
         v.radVY += f.b;
+        f.reset();
     }
 }

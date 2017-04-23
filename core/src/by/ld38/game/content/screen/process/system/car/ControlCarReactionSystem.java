@@ -22,7 +22,7 @@ public class ControlCarReactionSystem extends IteratingSystem {
     protected void process(int entityId) {
         CarControl cc = world.getMapper(CarControl.class).get(entityId);
         Force f = world.getMapper(Force.class).get(entityId);
-        f.reset();
+
 
         if (cc.right) f.a += coef;
         if (cc.left) f.a -= coef;

@@ -8,6 +8,7 @@ import by.ld38.game.content.screen.process.item.PlanetItem;
 import by.ld38.game.content.screen.process.item.enemy.BlueEnemyItem;
 import by.ld38.game.content.screen.process.item.enemy.GreenEnemyItem;
 import by.ld38.game.content.screen.process.item.enemy.VioletEnemyItem;
+import by.ld38.game.content.screen.process.system.car.CarCollisionSystem;
 import by.ld38.game.content.screen.process.system.car.ControlCarReactionSystem;
 import by.ld38.game.content.screen.process.system.car.ForceToVelocitySystem;
 import by.ld38.game.content.screen.process.system.car.SlowdownVelocitySystem;
@@ -53,7 +54,8 @@ public class GameProcessWorldScreen extends WorldScreen {
                         new PlanetAngleByPlayer(),
                         new ControlCarReactionSystem(),
                         new ForceToVelocitySystem(),
-                        new SlowdownVelocitySystem()
+                        new SlowdownVelocitySystem(),
+                        new CarCollisionSystem()
                         )
                 .build();
         World world = new World(config);
@@ -82,10 +84,10 @@ public class GameProcessWorldScreen extends WorldScreen {
 
         for (int i = 0; i < 20; i ++ ) {
             for (int j = 0; j < 20; j++) {
-                PlanetItem greenEnemy = ItemHolder.create(world, GreenEnemyItem.class);
+                int greenEnemy = CreatorsEnum.EMPTY_CAR.create(world);
 
-                greenEnemy.radPosition.radX = i + 10f;
-                greenEnemy.radPosition.radY = j + 70f;
+                world.getMapper(RadPosition.class).get(greenEnemy).radX = i + 1f;
+                world.getMapper(RadPosition.class).get(greenEnemy).radY = j + 1f;
             }
         }
 

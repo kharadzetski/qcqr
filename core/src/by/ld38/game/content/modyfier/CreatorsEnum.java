@@ -35,7 +35,12 @@ public enum CreatorsEnum {
 class CarCreator extends CreateEntityHelper {
     public CarCreator() {
         super(Velocity.class, RenderOrder.class, RadPosition.class, Animation.class,
-                Position.class, Scale.class, Force.class, CarControl.class, Car.class);
+                Position.class, Scale.class, Force.class, CarControl.class, Car.class,
+                Collidable.class);
+    }
+    @Override
+    protected void initializeEntity(World world, int id) {
+        world.getMapper(Animation.class).get(id).model = AnimationContent.CAR_ENEMY_GREEN.getModel();
     }
 }
 
@@ -43,7 +48,7 @@ class CarHeroCreator extends CreateEntityHelper {
     public CarHeroCreator() {
         super(Velocity.class, RenderOrder.class, RadPosition.class, Animation.class,
                 Position.class, Scale.class, Force.class, CarControl.class, Car.class,
-                Player.class);
+                Player.class, Collidable.class);
     }
 
     @Override
