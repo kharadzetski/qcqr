@@ -1,6 +1,7 @@
 package by.ld38.game.content.world;
 
 import by.ld38.game.content.assets.AnimationAssets;
+import by.ld38.game.content.constant.QcqrConstants;
 import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.car.Car;
@@ -36,5 +37,13 @@ public class ProcessWorldCreator extends WorldCreator {
         int id = EntityHelper.createEntity(world, Position.class, Force.class, Velocity.class, Car.class, Player.class,
                 Animation.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
+
+
+        // create background
+        id = EntityHelper.createEntity(world, Position.class, Animation.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH.getModel();
+        world.getMapper(Position.class).get(id).x = -QcqrConstants.SCREEN_WIDTH/2;
+        world.getMapper(Position.class).get(id).y = -QcqrConstants.SCREEN_HEIGHT/2;
+        world.getMapper(Position.class).get(id).z = -100;
     }
 }
