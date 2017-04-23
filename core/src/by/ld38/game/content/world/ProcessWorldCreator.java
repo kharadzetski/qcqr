@@ -11,6 +11,7 @@ import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.physic.MoveObjectSystem;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
+import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
 import by.ld38.game.util.EntityHelper;
 import com.artemis.World;
@@ -21,7 +22,8 @@ import com.artemis.World;
  */
 public class ProcessWorldCreator extends WorldCreator {
     public ProcessWorldCreator() {
-        super(new AnimationRenderSystem(),
+        super(new BlankScreenRenderSystem(),
+                new AnimationRenderSystem(),
                 new TextRenderSystem(),
                 new KeyboardCardControlSystem(),
                 new MoveObjectSystem(),

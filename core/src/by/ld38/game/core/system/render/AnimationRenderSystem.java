@@ -1,6 +1,7 @@
 package by.ld38.game.core.system.render;
 
 import by.ld38.game.QcqrGame;
+import by.ld38.game.content.assets.TextureAssets;
 import by.ld38.game.content.model.AnimationModel;
 import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
@@ -40,7 +41,7 @@ public class AnimationRenderSystem extends BaseEntitySystem {
         animation.current += model.getSpeed();
         if (animation.current > model.getSize()) animation.current = 0;
 
-        QcqrGame.getInstance().batch.draw(animation.region, .5f, .5f);//position.x, position.y);
+        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y);
     }
 
     private int compareInt(int a, int b) {

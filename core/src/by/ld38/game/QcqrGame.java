@@ -22,12 +22,12 @@ public class QcqrGame {
 
     public Long tick = 0L;
     public SpriteBatch batch;
-    public OrthographicCamera camera;
+    //public OrthographicCamera camera;
     public World world;
 
     public void initialize() {
         batch = new SpriteBatch();
-        camera = new OrthographicCamera();
+        //camera = new OrthographicCamera();
         world = new ProcessWorldCreator().create();
     }
 }

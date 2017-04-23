@@ -1,7 +1,7 @@
 package by.ld38.game.desktop;
 
 import by.ld38.game.QcqrGameAdapter;
-import by.ld38.game.content.constant.GameEnv;
+import by.ld38.game.content.constant.QcqrConstants;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
@@ -12,9 +12,9 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 public class DesktopLauncher {
     public static void main(String... arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.width = (int) GameEnv.SCREEN_WIDTH;
-        config.height = (int) GameEnv.SCREEN_HEIGHT;
-        config.title = GameEnv.GAME_TITLE;
+        config.width =  QcqrConstants.SCREEN_WIDTH;
+        config.height = QcqrConstants.SCREEN_HEIGHT;
+        config.title = QcqrConstants.GAME_TITLE;
         new LwjglApplication(new QcqrGameAdapter(), config);
     }
 }

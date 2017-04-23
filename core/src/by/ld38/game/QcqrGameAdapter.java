@@ -14,7 +14,7 @@ public class QcqrGameAdapter extends ApplicationAdapter {
     @Override
     public void create() {
         game.initialize();
-        game.batch.setProjectionMatrix(game.camera.projection); // устанавливаем камеру в позицию по центру
+        //game.batch.setProjectionMatrix(game.camera.projection); // устанавливаем камеру в позицию по центру
         super.create();
     }
 
