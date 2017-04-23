@@ -28,6 +28,7 @@ public class MoveObjectSystem extends IteratingSystem {
 
 
     private boolean checkCollision() {
+
         return true;
     }
 }
