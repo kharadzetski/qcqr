@@ -25,9 +25,8 @@ public class RadToScaleSystem extends IteratingSystem {
         RadPosition rp = rpm.get(entityId);
         Vector3 dec = Rad2DecUtil.rad2Dec(rpm.get(entityId).asVector3());
         Scale scale = sm.get(entityId);
-        float coef = (dec.z + rp.radZ + 30) / (2*rp.radZ);
+        float coef = (dec.z + rp.radZ + 60) / (2*rp.radZ);
         scale.x = coef;
         scale.y = coef;
-        System.out.println(" coef = " + coef);
     }
 }

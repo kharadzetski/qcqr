@@ -16,7 +16,7 @@ public class KeyboardPlayerControlSystem extends IteratingSystem {
         super(Aspect.one(Player.class));
     }
 
-    private float delta = .005f;
+    private float delta = .05f;
 
     @Override
     protected void process(int entityId) {
