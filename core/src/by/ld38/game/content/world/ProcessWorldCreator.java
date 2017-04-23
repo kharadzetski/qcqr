@@ -7,10 +7,11 @@ import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.physics.Force;
 import by.ld38.game.core.component.physics.Velocity;
+import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
-import by.ld38.game.core.system.physic.MoveObjectSystem;
+import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
@@ -28,19 +29,23 @@ public class ProcessWorldCreator extends WorldCreator {
                 new TextRenderSystem(),
                 new KeyboardCardControlSystem(),
                 new MoveObjectSystem(),
-                new CarMovement());
+                new CarMovement(),
+                new WorldMovementSystem(),
+                new VirtualCameraFollow(),
+                new WorldClosedSystem(),
+                new VirtualCameraRenderPosition());
     }
 
     @Override
     protected void initialize(World world) {
         // create player
-        int id = EntityHelper.createEntity(world, Position.class, Force.class, Velocity.class, Car.class, Player.class,
+        int id = EntityHelper.createEntity(world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
                 Animation.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
 
 
         // create background
-        id = EntityHelper.createEntity(world, Position.class, Animation.class);
+        id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH.getModel();
         world.getMapper(Position.class).get(id).x = -QcqrConstants.SCREEN_WIDTH/2;
         world.getMapper(Position.class).get(id).y = -QcqrConstants.SCREEN_HEIGHT/2;

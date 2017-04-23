@@ -14,5 +14,6 @@ public class QcqrConstants {
     public static float WorldMinX = 0;
     public static float WorldMaxY = 2000;
     public static float WorldMinY = 0;
+    public static float TextereRenderOffset = 100;
 
 }

@@ -10,9 +10,8 @@ import com.artemis.systems.IteratingSystem;
 
 public class WorldClosedSystem extends IteratingSystem {
 
-    private ComponentMapper<Velocity> vm;
     private ComponentMapper<WorldPosition> wpm;
-    public   WorldClosedSystem() { super(Aspect.all(WorldPosition.class, Velocity.class));}
+    public   WorldClosedSystem() { super(Aspect.all(WorldPosition.class));}
     @Override
     protected void process(int entityId) {
         WorldPosition wp = wpm.get(entityId);
@@ -25,8 +24,8 @@ public class WorldClosedSystem extends IteratingSystem {
         if (wp.worldY > QcqrConstants.WorldMaxY) {
             wp.worldY -= QcqrConstants.WorldMaxY;
         }
-        if (wp.worldY <QcqrConstants.WorldMinX) {
-            wp.worldY = QcqrConstants.WorldMaxY - Math.abs(wp.worldY);;
+        if (wp.worldY <QcqrConstants.WorldMinY) {
+            wp.worldY = QcqrConstants.WorldMaxY - Math.abs(wp.worldY);
         }
     }
 }

@@ -12,9 +12,7 @@ import com.artemis.World;
 import com.artemis.systems.IteratingSystem;
 import com.artemis.utils.IntBag;
 
-/**
- * Created by m_katlinski on 23.04.2017.
- */
+
 public class VirtualCameraRenderPosition  extends IteratingSystem {
     public VirtualCameraRenderPosition() { super(Aspect.all(WorldPosition.class, Position.class));}
     private ComponentMapper<WorldPosition> wpm;
@@ -28,21 +26,18 @@ public class VirtualCameraRenderPosition  extends IteratingSystem {
         WorldPosition wp = wpm.get(entityId);
         float deltaX1 = wp.worldX - pl.worldCameraX;
         float deltaX2 = wp.worldX + QcqrConstants.WorldMaxX - pl.worldCameraX;
-        float deltaY1 = wp.worldY - pl.worldCameraX;
+        float deltaY1 = wp.worldY - pl.worldCameraY;
         float deltaY2 = wp.worldY + QcqrConstants.WorldMaxY - pl.worldCameraY;
-        if ( Math.abs (deltaX1) < QcqrConstants.SCREEN_WIDTH)
-            pos.x = deltaX1;
-        else if (Math.abs (deltaX2) < QcqrConstants.SCREEN_WIDTH)
-            pos.x = deltaX2;
-        else
-            pos.x = -2000000;
 
-        if ( Math.abs (deltaY1) < QcqrConstants.SCREEN_HEIGHT)
-            pos.y = deltaX1;
-        else if (Math.abs (deltaY2) < QcqrConstants.SCREEN_HEIGHT)
-            pos.y = deltaX2;
-        else
-            pos.y = -2000000;
+        if ( Math.abs (deltaX1) <= Math.abs (deltaX2) )
+            pos.x = deltaX1;
+        else if (Math.abs (deltaX2) < Math.abs (deltaX1))
+            pos.x = deltaX2;
+
+        if ( Math.abs (deltaY1) <= Math.abs (deltaY2) )
+            pos.y = deltaY1;
+        else if (Math.abs (deltaY1) < Math.abs (deltaY2))
+            pos.y = deltaY2;
 
 
     }
