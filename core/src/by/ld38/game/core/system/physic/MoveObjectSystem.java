@@ -23,10 +23,7 @@ public class MoveObjectSystem extends IteratingSystem {
         velocity.x += force.x;
         velocity.y += force.y;
         force.reset();
-        if (checkCollision()) {
-            position.x += velocity.x;
-            position.y += velocity.y;
-        }
+
     }
 
 
