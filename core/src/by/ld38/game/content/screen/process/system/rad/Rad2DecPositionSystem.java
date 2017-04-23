@@ -32,9 +32,13 @@ public class Rad2DecPositionSystem extends IteratingSystem {
         RadPosition radPosition = rpm.get(entityId);
         Position position = pm.get(entityId);
 
+        Vector3 rad = radPosition.asVector3();
+        rad = rad.add(planet.alpha, 0f, 0f);
+        Vector3 decV3 = Rad2DecUtil.rad2Dec( rad );
 
+        decV3 = decV3.set(decV3.x, (float) ( decV3.y * Math.cos(planet.beta) + decV3.z * Math.sin(planet.beta) ),
+                (float) ( decV3.y * Math.sin(planet.beta) + decV3.z * Math.cos(planet.beta) ));
 
-        Vector3 decV3 = Rad2DecUtil.rad2Dec( radPosition.asVector3().add(planet.alpha, planet.beta, 0f) );
         position.x = decV3.x;
         position.y = decV3.y;
     }

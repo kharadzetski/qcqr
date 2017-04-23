@@ -4,6 +4,7 @@ import by.ld38.game.content.screen.common.component.base.Position;
 import by.ld38.game.content.screen.common.component.render.Animation;
 import by.ld38.game.content.screen.common.component.render.RenderOrder;
 import by.ld38.game.content.screen.common.component.render.Scale;
+import by.ld38.game.content.screen.process.component.Player;
 import by.ld38.game.content.screen.process.component.RadPosition;
 import by.ld38.game.content.screen.process.component.Velocity;
 import by.ld38.game.core.item.Item;
