@@ -7,6 +7,7 @@ import by.ld38.game.content.screen.common.component.render.RenderOrder;
 import by.ld38.game.content.screen.common.component.render.Scale;
 import by.ld38.game.content.screen.process.component.*;
 import by.ld38.game.utils.help.CreateEntityHelper;
+import com.artemis.Component;
 import com.artemis.World;
 
 /**
@@ -17,7 +18,8 @@ import com.artemis.World;
  */
 public enum CreatorsEnum {
     HERO_CAR(new CarHeroCreator()),
-    PLANET(new PlanetCreator())
+    PLANET(new PlanetCreator()),
+    EMPTY_CAR(new CarCreator())
     ;
     private CreateEntityHelper helper;
 
@@ -30,10 +32,18 @@ public enum CreatorsEnum {
     }
 }
 
+class CarCreator extends CreateEntityHelper {
+    public CarCreator() {
+        super(Velocity.class, RenderOrder.class, RadPosition.class, Animation.class,
+                Position.class, Scale.class, Force.class, CarControl.class, Car.class);
+    }
+}
+
 class CarHeroCreator extends CreateEntityHelper {
     public CarHeroCreator() {
         super(Velocity.class, RenderOrder.class, RadPosition.class, Animation.class,
-                Position.class, Scale.class, Player.class, Car.class);
+                Position.class, Scale.class, Force.class, CarControl.class, Car.class,
+                Player.class);
     }
 
     @Override

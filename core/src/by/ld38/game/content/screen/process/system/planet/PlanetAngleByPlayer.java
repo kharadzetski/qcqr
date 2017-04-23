@@ -20,7 +20,7 @@ public class PlanetAngleByPlayer extends BaseSystem {
         Planet planet = getPlanet();
         RadPosition player = getPlayerRadPosition();
         planet.alpha = - player.radX;
-        planet.beta = (player.radY ) + 1.5f;
+        planet.beta = ( player.radY ) + 1.5f;
 
     }
 

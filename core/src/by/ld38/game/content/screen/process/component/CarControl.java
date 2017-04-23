@@ -1,12 +1,12 @@
 package by.ld38.game.content.screen.process.component;
 
+import com.artemis.Component;
+
 /**
- * TODO  plz, describe me
- *
  * @author SharK729
  * @since 1.0
  */
-public class CarControl {
+public class CarControl extends Component {
     public boolean left;
     public boolean right;
     public boolean up;

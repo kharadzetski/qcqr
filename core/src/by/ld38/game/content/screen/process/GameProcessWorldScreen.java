@@ -8,6 +8,9 @@ import by.ld38.game.content.screen.process.item.PlanetItem;
 import by.ld38.game.content.screen.process.item.enemy.BlueEnemyItem;
 import by.ld38.game.content.screen.process.item.enemy.GreenEnemyItem;
 import by.ld38.game.content.screen.process.item.enemy.VioletEnemyItem;
+import by.ld38.game.content.screen.process.system.car.ControlCarReactionSystem;
+import by.ld38.game.content.screen.process.system.car.ForceToVelocitySystem;
+import by.ld38.game.content.screen.process.system.car.SlowdownVelocitySystem;
 import by.ld38.game.content.screen.process.system.planet.PlanetAngleByPlayer;
 import by.ld38.game.content.screen.process.system.player.KeyboardPlanetControlSystem;
 import by.ld38.game.content.screen.process.system.rad.Rad2DecPositionSystem;
@@ -47,7 +50,11 @@ public class GameProcessWorldScreen extends WorldScreen {
                         new ShowDebugSystem(),
                         new RenderTextSystem(),
                         new KeyboardPlanetControlSystem(),
-                        new PlanetAngleByPlayer())
+                        new PlanetAngleByPlayer(),
+                        new ControlCarReactionSystem(),
+                        new ForceToVelocitySystem(),
+                        new SlowdownVelocitySystem()
+                        )
                 .build();
         World world = new World(config);
         createTestAnimation(world);
