@@ -40,7 +40,7 @@ public class AnimationRenderSystem extends BaseEntitySystem {
         animation.current += model.getSpeed();
         if (animation.current > model.getSize()) animation.current = 0;
 
-        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y);
+        QcqrGame.getInstance().batch.draw(animation.region, .5f, .5f);//position.x, position.y);
     }
 
     private int compareInt(int a, int b) {

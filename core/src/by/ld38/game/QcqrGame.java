@@ -1,6 +1,6 @@
 package by.ld38.game;
 
-import by.ld38.game.content.world.WorldCreator;
+import by.ld38.game.content.world.ProcessWorldCreator;
 import com.artemis.World;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -28,6 +28,6 @@ public class QcqrGame {
     public void initialize() {
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
-        world = WorldCreator.createProcessWorld();
+        world = new ProcessWorldCreator().create();
     }
 }

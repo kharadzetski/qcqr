@@ -1,0 +1,38 @@
+package by.ld38.game.content.world;
+
+import by.ld38.game.content.assets.AnimationAssets;
+import by.ld38.game.core.component.base.Animation;
+import by.ld38.game.core.component.base.Position;
+import by.ld38.game.core.component.car.Car;
+import by.ld38.game.core.component.physics.Force;
+import by.ld38.game.core.component.physics.Velocity;
+import by.ld38.game.core.component.player.Player;
+import by.ld38.game.core.system.car.CarMovement;
+import by.ld38.game.core.system.control.KeyboardCardControlSystem;
+import by.ld38.game.core.system.physic.MoveObjectSystem;
+import by.ld38.game.core.system.render.AnimationRenderSystem;
+import by.ld38.game.core.system.render.TextRenderSystem;
+import by.ld38.game.util.EntityHelper;
+import com.artemis.World;
+
+/**
+ * @author SharK729
+ * @since 1.0
+ */
+public class ProcessWorldCreator extends WorldCreator {
+    public ProcessWorldCreator() {
+        super(new AnimationRenderSystem(),
+                new TextRenderSystem(),
+                new KeyboardCardControlSystem(),
+                new MoveObjectSystem(),
+                new CarMovement());
+    }
+
+    @Override
+    protected void initialize(World world) {
+        // create player
+        int id = EntityHelper.createEntity(world, Position.class, Force.class, Velocity.class, Car.class, Player.class,
+                Animation.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
+    }
+}
