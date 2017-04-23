@@ -11,6 +11,8 @@ import by.ld38.game.core.component.physics.Force;
 import by.ld38.game.core.component.physics.Velocity;
 import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
+import by.ld38.game.core.component.rad.RadDirection;
+import by.ld38.game.core.component.rad.RadPosition;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.RadCarControlSystem;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
@@ -50,7 +52,7 @@ public class ProcessWorldCreator extends WorldCreator {
     @Override
     protected void initialize(World world) {
         // create player
-        int id = EntityHelper.createEntity(world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
+        int id = EntityHelper.createEntity(world, Position.class, RadDirection.class, RadPosition.class, Car.class, Player.class,
                 Animation.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
 
@@ -61,5 +63,10 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).y = 15f;
         world.getMapper(Position.class).get(id).z = 1000f;
 
+        id = EntityHelper.createEntity(world, Position.class, Animation.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.CORE.getModel();
+        world.getMapper(Position.class).get(id).x = QcqrConstants.SCREEN_WIDTH/2;
+        world.getMapper(Position.class).get(id).y = QcqrConstants.SCREEN_HEIGHT/2;
+        world.getMapper(Position.class).get(id).z = 0f;
     }
 }

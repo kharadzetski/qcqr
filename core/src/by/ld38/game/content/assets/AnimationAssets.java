@@ -23,7 +23,8 @@ public enum AnimationAssets {
     BACKGROUND_EARTH6(TextureAssets.BACKGROUND_EARTH6, 1280, 720, 0f, 0),
     BACKGROUND_EARTH7(TextureAssets.BACKGROUND_EARTH7, 1280, 720, 0f, 0),
     BACKGROUND_EARTH8(TextureAssets.BACKGROUND_EARTH8, 1280, 720, 0f, 0),
-    BACKGROUND_EARTH9(TextureAssets.BACKGROUND_EARTH9, 1280, 720, 0f, 0)
+    BACKGROUND_EARTH9(TextureAssets.BACKGROUND_EARTH9, 1280, 720, 0f, 0),
+    CORE(TextureAssets.CORE, 200, 200, 0.5f, 0, 1, 2)
 ;
     private AnimationModel model;
 
