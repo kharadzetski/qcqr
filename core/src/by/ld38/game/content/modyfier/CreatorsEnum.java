@@ -3,6 +3,7 @@ package by.ld38.game.content.modyfier;
 import by.ld38.game.content.asset.AnimationContent;
 import by.ld38.game.content.screen.common.component.base.Position;
 import by.ld38.game.content.screen.common.component.render.Animation;
+import by.ld38.game.content.screen.common.component.render.RenderOrder;
 import by.ld38.game.content.screen.common.component.render.Scale;
 import by.ld38.game.content.screen.process.component.Player;
 import by.ld38.game.content.screen.process.component.RadPosition;
@@ -17,7 +18,7 @@ import com.artemis.World;
  * @since 1.0
  */
 public enum CreatorsEnum {
-    HERO_CAR(new CarCreator())
+    HERO_CAR(new CarCreator()),
 
     ;
     private CreateEntityHelper helper;
@@ -33,7 +34,7 @@ public enum CreatorsEnum {
 
 class CarCreator extends CreateEntityHelper {
     public CarCreator() {
-        super(Velocity.class, RadPosition.class, Animation.class, Position.class, Scale.class, Player.class);
+        super(Velocity.class, RenderOrder.class, RadPosition.class, Animation.class, Position.class, Scale.class, Player.class);
     }
 
     @Override

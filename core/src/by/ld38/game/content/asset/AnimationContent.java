@@ -10,7 +10,11 @@ import by.ld38.game.content.screen.common.model.AnimationModel;
  */
 public enum AnimationContent {
     TEST(TextureContent.TEST, 45, 60, 0.2f, 1, 2, 3),
-    CAR_HERO(TextureContent.CAR_HERO, 45, 60, 0.3f, 0, 1)
+    CAR_HERO(TextureContent.CAR_HERO, 45, 60, 0.3f, 0, 1),
+    CAR_ENEMY_GREEN(TextureContent.CAR_ENEMY_GREEN, 45, 59, 0.3f, 0, 1),
+    CAR_ENEMY_BLUE(TextureContent.CAR_ENEMY_BLUE, 45, 59, 0.3f, 0, 1),
+    CAR_ENEMY_VIOLET(TextureContent.CAR_ENEMY_VIOLET, 45, 59, 0.3f, 0, 1)
+
     ;
     private AnimationModel model;
 

@@ -4,6 +4,10 @@ import by.ld38.game.content.modyfier.CreatorsEnum;
 import by.ld38.game.content.screen.WorldScreen;
 import by.ld38.game.content.screen.common.system.RenderTextSystem;
 import by.ld38.game.content.screen.process.component.RadPosition;
+import by.ld38.game.content.screen.process.item.PlanetItem;
+import by.ld38.game.content.screen.process.item.enemy.BlueEnemyItem;
+import by.ld38.game.content.screen.process.item.enemy.GreenEnemyItem;
+import by.ld38.game.content.screen.process.item.enemy.VioletEnemyItem;
 import by.ld38.game.content.screen.process.system.rad.Rad2DecPositionSystem;
 import by.ld38.game.content.screen.process.system.rad.RadMovementSystem;
 import by.ld38.game.content.screen.process.system.rad.RadToScaleSystem;
@@ -14,6 +18,7 @@ import by.ld38.game.content.screen.common.system.render.RenderFpsSystem;
 import by.ld38.game.content.screen.process.system.player.KeyboardPlayerControlSystem;
 import by.ld38.game.content.screen.test.system.ShowDebugSystem;
 import by.ld38.game.core.input.KeyboardInputProcessor;
+import by.ld38.game.core.item.ItemHolder;
 import com.artemis.World;
 import com.artemis.WorldConfiguration;
 import com.artemis.WorldConfigurationBuilder;
@@ -57,5 +62,17 @@ public class GameProcessWorldScreen extends WorldScreen {
         //item.velocity.radVY = .01f;
         world.getMapper(RadPosition.class).get(id).radX = 40f;
         world.getMapper(RadPosition.class).get(id).radY = 60f;
+
+        PlanetItem blueEnemy = ItemHolder.create(world, BlueEnemyItem.class);
+        blueEnemy.radPosition.radX = 40f;
+        blueEnemy.radPosition.radY = 50f;
+
+        PlanetItem violetEnemy = ItemHolder.create(world, VioletEnemyItem.class);
+        violetEnemy.radPosition.radX = 20f;
+        violetEnemy.radPosition.radY = 30f;
+
+        PlanetItem greenEnemy = ItemHolder.create(world, GreenEnemyItem.class);
+        greenEnemy.radPosition.radX = 10f;
+        greenEnemy.radPosition.radY = 70f;
     }
 }
