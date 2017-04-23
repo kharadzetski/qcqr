@@ -9,4 +9,9 @@ import com.artemis.Component;
 public class Velocity extends Component {
     public float x;
     public float y;
+
+    public void reset() {
+        x = 0;
+        y = 0;
+    }
 }

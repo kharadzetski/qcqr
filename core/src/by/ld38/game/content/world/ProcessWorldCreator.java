@@ -8,10 +8,13 @@ import by.ld38.game.core.component.base.Size;
 import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.physics.Force;
 import by.ld38.game.core.component.physics.Velocity;
+import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.physic.MoveObjectSystem;
+import by.ld38.game.core.system.physic.RestrictMovementSystem;
+import by.ld38.game.core.system.physic.WorldMovementSystem;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
@@ -29,14 +32,16 @@ public class ProcessWorldCreator extends WorldCreator {
                 new TextRenderSystem(),
                 new KeyboardCardControlSystem(),
                 new MoveObjectSystem(),
-                new CarMovement());
+                new CarMovement(),
+                new WorldMovementSystem(),
+                new RestrictMovementSystem());
     }
 
     @Override
     protected void initialize(World world) {
         // create player
         int id = EntityHelper.createEntity(world, Position.class, Force.class, Velocity.class, Car.class, Player.class,
-                Animation.class, Size.class);
+                Animation.class, Size.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
         world.getMapper(Size.class).get(id).width = AnimationAssets.CAR_HERO.getModel().getFrameWidth();
         world.getMapper(Size.class).get(id).height = AnimationAssets.CAR_HERO.getModel().getFrameHeight();
