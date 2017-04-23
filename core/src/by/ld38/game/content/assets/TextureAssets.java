@@ -13,7 +13,8 @@ public enum TextureAssets {
     CAR_HERO("test/Car_Hero_90x60.png"),
     CAR_ENEMY_GREEN("sprites/cars/enemy_green_45x59.png"),
     CAR_ENEMY_BLUE("sprites/cars/enemy_blue_45x59.png"),
-    CAR_ENEMY_VIOLET("sprites/cars/enemy_violet_45x58.png")
+    CAR_ENEMY_VIOLET("sprites/cars/enemy_violet_45x58.png"),
+    BACKGROUND_EARTH("sprites/world/earth_1280x720.png")
 
     ;
     private Texture texture;
