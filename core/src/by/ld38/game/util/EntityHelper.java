@@ -1,7 +1,8 @@
 package by.ld38.game.util;
 
-import com.artemis.Component;
-import com.artemis.World;
+import by.ld38.game.core.component.energy.PlanetEnergy;
+import com.artemis.*;
+import com.artemis.utils.IntBag;
 
 import java.util.Arrays;
 
@@ -15,5 +16,11 @@ public class EntityHelper {
         Arrays.stream(types)
                 .forEach(type -> world.getMapper(type).create(id));
         return id;
+    }
+
+    public static IntBag findEntities(World world, Class<? extends Component>... types) {
+        EntitySubscription subscription = world.getAspectSubscriptionManager()
+                .get(Aspect.all(PlanetEnergy.class));
+        return subscription.getEntities();
     }
 }

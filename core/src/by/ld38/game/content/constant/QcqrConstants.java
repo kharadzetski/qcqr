@@ -21,4 +21,5 @@ public class QcqrConstants {
     public static float MAX_RADIUS = 3000;
 
     public static float MAX_ENERGY = 5000;
+    public static float VICTORY_CONDITION = 0.5f;
 }
