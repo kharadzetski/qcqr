@@ -2,7 +2,6 @@ package by.ld38.game.core.system.physic;
 
 
 import by.ld38.game.content.constant.QcqrConstants;
-import by.ld38.game.core.component.physics.Velocity;
 import by.ld38.game.core.component.physics.WorldPosition;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
@@ -24,7 +23,7 @@ public class WorldClosedSystem extends IteratingSystem {
         if (wp.worldY > QcqrConstants.WorldMaxY) {
             wp.worldY -= QcqrConstants.WorldMaxY;
         }
-        if (wp.worldY <QcqrConstants.WorldMinY) {
+        if (wp.worldY < QcqrConstants.WorldMinY) {
             wp.worldY = QcqrConstants.WorldMaxY - Math.abs( QcqrConstants.WorldMinY - wp.worldY);
         }
     }
