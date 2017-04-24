@@ -1,11 +1,15 @@
 package by.ld38.game.content.world;
 
 import by.ld38.game.content.assets.AnimationAssets;
+import by.ld38.game.content.assets.SpeedHudAssets;
 import by.ld38.game.content.constant.QcqrConstants;
 import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.base.Size;
 import by.ld38.game.core.component.car.Car;
+import by.ld38.game.core.component.energy.Energy;
+import by.ld38.game.core.component.hud.HudSpeedArrow;
+import by.ld38.game.core.component.hud.HudSpeedMeter;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.Test.ShowDebugSystem;
@@ -13,6 +17,7 @@ import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
+import by.ld38.game.core.system.hud.EnergyHudSystem;
 import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
@@ -40,16 +45,18 @@ public class ProcessWorldCreator extends WorldCreator {
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
                 new CollisionSystem(),
-                new DummyAiSystem()
+                new DummyAiSystem(),
+                new EnergyHudSystem()
         );
     }
 
     @Override
     protected void initialize(World world) {
+        createHud(world);
         // create player
         int id = EntityHelper.createEntity(
                 world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
-                Animation.class, MaxVelocity.class, Size.class, Collides.class
+                Animation.class, MaxVelocity.class, Size.class, Collides.class, Energy.class
         );
         Animation animation = world.getMapper(Animation.class).get(id);
         animation.model = AnimationAssets.CAR_HERO.getModel();
@@ -185,5 +192,27 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(WorldPosition.class).get(id).worldX =QcqrConstants.WorldMaxX/2 +QcqrConstants.WorldMaxX/6;
         world.getMapper (WorldPosition.class).get(id).worldY =QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
         world.getMapper(Position.class).get(id).z = -92;*/
+
+
+    }
+
+    private void createHud(World world) {
+        // meter
+        float hudX = -600;
+        float hudY = 200;
+        float arrowX = hudX + 28;
+        float arrowY = hudY - 27;
+
+
+        int id = EntityHelper.createEntity(world, Animation.class, Position.class, HudSpeedMeter.class);
+        world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_METER.getModel();
+        world.getMapper(Position.class).get(id).x = hudX;
+        world.getMapper(Position.class).get(id).y = hudY;
+
+        // arrow
+        id = EntityHelper.createEntity(world, Animation.class, Position.class, HudSpeedArrow.class);
+        world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_ARROW.getModel();
+        world.getMapper(Position.class).get(id).x = arrowX;
+        world.getMapper(Position.class).get(id).y = arrowY;
     }
 }
