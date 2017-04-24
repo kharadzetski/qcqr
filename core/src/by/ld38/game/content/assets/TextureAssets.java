@@ -33,7 +33,9 @@ public enum TextureAssets {
     ENERGY_ARROW("sprites/hud/arrow.png"),
     PlanetOffset ("sprites/world/space_texture.png"),
     CREDITS_SCREEN("sprites/menu/credits.png"),
-    PLANET_OFFSET("sprites/world/space_texture_anim_1280x720.png")
+    PLANET_OFFSET("sprites/world/space_texture_anim_1280x720.png"),
+    INTRO_TEXT_1("sprites/intro/intro_screen_1.png"),
+    INTRO_TEXT_2("sprites/intro/intro_screen_2.png")
     ;
     private Texture texture;
 

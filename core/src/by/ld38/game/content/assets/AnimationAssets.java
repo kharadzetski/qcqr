@@ -30,7 +30,10 @@ public enum AnimationAssets {
     PLANET_OFFSET( TextureAssets.PLANET_OFFSET, 1280, 720, 0.3f, 0, 1, 2, 3, 4, 5,6 ,7 ,8),
 
     QUARKTUS(TextureAssets.QUARKTUS, 70, 70, 0.2f, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11),
-    CREDITS_SCREEN(TextureAssets.CREDITS_SCREEN, 1280, 720, 0f);
+    CREDITS_SCREEN(TextureAssets.CREDITS_SCREEN, 1280, 720, 0f),
+    INTRO_TEXT_1(TextureAssets.INTRO_TEXT_1, 1280, 720, 0f),
+    INTRO_TEXT_2(TextureAssets.INTRO_TEXT_2, 1280, 720, 0f),
+    ;
     private AnimationModel model;
 
     AnimationAssets(TextureAssets texture, int width, int height, float speed, Integer... frames) {

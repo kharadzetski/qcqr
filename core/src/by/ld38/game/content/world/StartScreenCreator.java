@@ -38,14 +38,12 @@ public class StartScreenCreator extends WorldCreator {
             private Rectangle exit = new Rectangle(1005, 611, 706, 70);
             @Override
             public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-                System.out.println(screenX + " " + screenY);
                 if (start.contains(screenX, screenY)) {
                     MusicPlayer.getInstance().startPlay(MusicFiles.DIGITAL_MK2, true);
-                    QcqrGame.getInstance().world = new ProcessWorldCreator().create();
+                    QcqrGame.getInstance().world = new IntroScreenCreator().create();
                 }
                 if (cred.contains(screenX, screenY)) {
                     QcqrGame.getInstance().world = new CreditsScreenCreator().create();
-                    System.out.println("credits");
                 }
                 if (exit.contains(screenX, screenY)) {
                     MusicPlayer.getInstance().stopPlayAndDispose();
