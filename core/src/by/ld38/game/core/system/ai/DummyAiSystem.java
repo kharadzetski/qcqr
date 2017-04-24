@@ -24,7 +24,7 @@ public class DummyAiSystem extends IteratingSystem {
     @Override
     protected void process(int entityId) {
         float rollDice = (float) Math.random();
-        //if (rollDice <= changeControlCoef) changeControl(entityId);
+        if (rollDice <= changeControlCoef) changeControl(entityId);
     }
 
     private void changeControl(int entityId) {

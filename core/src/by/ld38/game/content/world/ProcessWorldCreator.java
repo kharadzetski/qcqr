@@ -73,7 +73,7 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).z = 0f;
 
         for (int i=0; i < 40; i++) generateRandomDot(world);
-        for (int i=0; i< 1; i++) generateEnemy(world);
+        for (int i=0; i< 10; i++) generateEnemy(world);
     }
 
     private void generateRandomDot(World world) {
