@@ -43,7 +43,7 @@ public class EnergyHudSystem extends BaseEntitySystem {
         Position arrow = world.getMapper(Position.class).get(arrowId);
         float length = 20;
         arrow.angle = -energy.value;
-        maxVelocity.max = energy.value;
+        maxVelocity.max = 2+ energy.value/5;
         //rrow.x = -450 + (float) (Math.sin( (energy.value -180) * Math.PI / 180) * length);
         //arrow.y = 200 + (float) (Math.cos( (energy.value -180) * Math.PI / 180) * length);
     }
