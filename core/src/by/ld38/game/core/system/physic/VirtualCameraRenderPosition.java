@@ -24,10 +24,35 @@ public class VirtualCameraRenderPosition  extends IteratingSystem {
         Player pl =  world.getMapper(Player.class).get(PlayerEntityId.get(0));
         Position pos = pm.get(entityId);
         WorldPosition wp = wpm.get(entityId);
+
         float deltaX1 = wp.worldX - pl.worldCameraX;
-        float deltaX2 = wp.worldX + QcqrConstants.WorldMaxX*2 - pl.worldCameraX;
         float deltaY1 = wp.worldY - pl.worldCameraY;
-        float deltaY2 = wp.worldY + QcqrConstants.WorldMaxY*2 - pl.worldCameraY;
+        float deltaX2;
+        float deltaY2;
+        if(Math.abs(wp.worldX  -  pl.worldCameraX) >= QcqrConstants.WorldMaxX/2)
+        {
+            if(pl.worldCameraX >= QcqrConstants.WorldMaxX/2 )
+                deltaX2  = (wp.worldX+ QcqrConstants.WorldMaxX) - pl.worldCameraX;
+            else
+                deltaX2  = (wp.worldX - QcqrConstants.WorldMaxX) - pl.worldCameraX;
+        }
+        else
+        {
+            deltaX2  =deltaX1 ;
+        }
+
+        if( Math.abs(wp.worldY  -  pl.worldCameraY) >= QcqrConstants.WorldMaxY/2 )
+        {
+            if(pl.worldCameraY >= QcqrConstants.WorldMaxY/2 )
+                deltaY2  = (wp.worldY + QcqrConstants.WorldMaxY) - pl.worldCameraY;
+            else
+                deltaY2  = (wp.worldY - QcqrConstants.WorldMaxY) - pl.worldCameraY;
+        }
+        else
+        {
+            deltaY2  =deltaY1;
+        }
+
         float dist1 =  (float)Math.sqrt( (deltaX1*deltaX1) + (deltaY1*deltaY1));
         float dist2 =  (float)Math.sqrt( (deltaX2*deltaX2) + (deltaY2*deltaY2));
         if ( dist1 <= dist2 ) {

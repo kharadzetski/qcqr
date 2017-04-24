@@ -7,6 +7,7 @@ import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
+import com.badlogic.gdx.math.MathUtils;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,8 +41,14 @@ public class AnimationRenderSystem extends BaseEntitySystem {
         model.updateRegion(animation.region, (int) animation.current);
         animation.current += model.getSpeed();
         if (animation.current > model.getSize()) animation.current = 0;
-
-        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y);
+        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y ,
+                animation.region.getRegionWidth()/2
+                ,animation.region.getRegionHeight()/2,
+                animation.region.getRegionWidth(),
+                animation.region.getRegionHeight(),
+                1,
+                1,
+                position.angle);
     }
 
     private int compareInt(int a, int b) {

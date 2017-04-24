@@ -7,8 +7,8 @@ import com.artemis.Component;
  * @since 1.0
  */
 public class Car extends Component {
-    public float speedForce = 0.1f;
-    public float maxVelocity = 10f;
+    public float speedForce = 0.5f;
+    public float maxVelocity = 1f;
 
     public Control control = new Control();
     public State state = State.STAY;
