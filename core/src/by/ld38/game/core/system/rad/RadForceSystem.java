@@ -1,5 +1,6 @@
 package by.ld38.game.core.system.rad;
 
+import by.ld38.game.core.component.physics.Unstopable;
 import by.ld38.game.core.component.rad.RadForce;
 import by.ld38.game.core.component.rad.RadPosition;
 import by.ld38.game.core.component.rad.RadVelocity;
@@ -31,9 +32,11 @@ public class RadForceSystem extends IteratingSystem {
         rv.gamma += rf.gamma;
         rf.reset();
 
-        rv.alpha = slowVelocity(rv.alpha);
-        rv.beta = slowVelocity(rv.beta);
-        rv.gamma = slowVelocity(rv.gamma);
+        if (!world.getMapper(Unstopable.class).has(entityId)) {
+            rv.alpha = slowVelocity(rv.alpha);
+            rv.beta = slowVelocity(rv.beta);
+            rv.gamma = slowVelocity(rv.gamma);
+        }
 
         rp.alpha += rv.alpha;
         rp.beta += rv.beta;

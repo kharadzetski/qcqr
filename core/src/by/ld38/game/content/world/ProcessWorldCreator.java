@@ -11,6 +11,7 @@ import by.ld38.game.core.component.car.Collidable;
 import by.ld38.game.core.component.car.Health;
 import by.ld38.game.core.component.energy.Energy;
 import by.ld38.game.core.component.energy.PlanetEnergy;
+import by.ld38.game.core.component.physics.Unstopable;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.component.rad.RadForce;
 import by.ld38.game.core.component.rad.RadPosition;
@@ -82,10 +83,13 @@ public class ProcessWorldCreator extends WorldCreator {
     }
 
     private void generateRandomDot(World world) {
-        int id = EntityHelper.createEntity(world, Position.class, Animation.class, RadPosition.class);
+        int id = EntityHelper.createEntity(world, Position.class, Animation.class, RadPosition.class, RadForce.class,
+                RadVelocity.class, Unstopable.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.SMALL_ROUND.getModel();
         world.getMapper(RadPosition.class).get(id).alpha = DegreeUtil.deg2rad((float) Math.random()*360);//QcqrConstants.SCREEN_WIDTH/2;
         world.getMapper(RadPosition.class).get(id).beta = DegreeUtil.deg2rad((float) Math.random()*360);//QcqrConstants.SCREEN_HEIGHT/2;
+        world.getMapper(RadForce.class).get(id).alpha = DegreeUtil.deg2rad((float) Math.random() - 0.5f);//QcqrConstants.SCREEN_HEIGHT/2;
+        world.getMapper(RadForce.class).get(id).beta = DegreeUtil.deg2rad((float) Math.random() - 0.5f);//QcqrConstants.SCREEN_HEIGHT/2;
     }
 
     private void generateEnemy(World world) {

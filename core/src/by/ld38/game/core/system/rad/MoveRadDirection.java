@@ -12,6 +12,7 @@ import static java.lang.Math.*;
  * @author SharK729
  * @since 1.0
  */
+@Deprecated
 public class MoveRadDirection extends IteratingSystem {
     public MoveRadDirection() {
         super(Aspect.all(RadDirection.class, RadPosition.class));
