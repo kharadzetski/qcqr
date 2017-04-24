@@ -6,6 +6,8 @@ import by.ld38.game.core.component.rad.RadVelocity;
 import com.artemis.Aspect;
 import com.artemis.systems.IteratingSystem;
 
+import static by.ld38.game.util.DegreeUtil.round;
+
 /**
  * @author SharK729
  * @since 1.0
@@ -16,7 +18,7 @@ public class RadForceSystem extends IteratingSystem {
     }
 
     private float slowCoef = .001f;
-    private float maxVelocity = .2f;
+    private float maxVelocity = .05f;
 
     @Override
     protected void process(int entityId) {
@@ -36,6 +38,12 @@ public class RadForceSystem extends IteratingSystem {
         rp.alpha += rv.alpha;
         rp.beta += rv.beta;
         rp.gamma += rv.gamma;
+
+
+        if (rp.alpha > round) rp.alpha -= round;
+        if (rp.alpha < 0) rp.alpha = round - rp.alpha;
+        if (rp.beta > round) rp.beta -= round;
+        if (rp.beta < 0) rp.beta = round - rp.beta;
     }
 
     private float slowVelocity(float value) {

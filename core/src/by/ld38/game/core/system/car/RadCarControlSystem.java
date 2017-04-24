@@ -19,7 +19,7 @@ public class RadCarControlSystem extends IteratingSystem {
         super(Aspect.all(Car.class, RadForce.class));
     }
 
-    private float angleCoef = DegreeUtil.deg2rad(0.5f);
+    private float angleCoef = DegreeUtil.deg2rad(0.1f);
     private float spdCoef = 0.0005f;
 
     @Override
@@ -54,6 +54,6 @@ public class RadCarControlSystem extends IteratingSystem {
         if (car.control.up) rd.speed += spdCoef;
         if (car.control.down) rd.speed -= spdCoef;*/
 
-        car.control.reset();
+        //car.control.reset();
     }
 }
