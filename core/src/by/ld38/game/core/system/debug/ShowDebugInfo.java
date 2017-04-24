@@ -3,8 +3,8 @@ package by.ld38.game.core.system.debug;
 import by.ld38.game.core.component.base.Debug;
 import by.ld38.game.core.component.base.Text;
 import by.ld38.game.core.component.player.Player;
-import by.ld38.game.core.component.rad.RadDirection;
 import by.ld38.game.core.component.rad.RadPosition;
+import by.ld38.game.core.component.rad.RadVelocity;
 import com.artemis.Aspect;
 import com.artemis.BaseSystem;
 import com.artemis.EntitySubscription;
@@ -20,7 +20,7 @@ public class ShowDebugInfo extends BaseSystem {
     @Override
     protected void processSystem() {
         EntitySubscription subscription = world.getAspectSubscriptionManager()
-                .get(Aspect.all(RadDirection.class, Player.class, RadPosition.class));
+                .get(Aspect.all(RadVelocity.class, Player.class, RadPosition.class));
         int id = subscription.getEntities().get(0);
 
         subscription = world.getAspectSubscriptionManager()
@@ -28,7 +28,7 @@ public class ShowDebugInfo extends BaseSystem {
         int textId = subscription.getEntities().get(0);
 
 
-        RadDirection rd = world.getMapper(RadDirection.class).get(id);
+        RadVelocity rd = world.getMapper(RadVelocity.class).get(id);
         RadPosition rp = world.getMapper(RadPosition.class).get(id);
 
 
@@ -37,7 +37,6 @@ public class ShowDebugInfo extends BaseSystem {
             "Rad.alpha: " + rad2dec( rp.alpha ) + "\n" +
             "Rad.beta: " + rad2dec( rp.beta ) + "\n" +
             "Rad.gamma: " + rad2dec( rp.gamma ) + "\n" +
-            "Direction: " + rad2dec( rd.angle )+ "\n" +
-            "Speed: " + rd.speed;
+            "Velocity: " + rad2dec( rd.alpha )+ ", " + rad2dec( rd.beta)+", " + rad2dec( rd.gamma );
     }
 }

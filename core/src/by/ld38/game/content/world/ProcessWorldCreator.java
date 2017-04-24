@@ -7,19 +7,17 @@ import by.ld38.game.core.component.base.Debug;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.base.Text;
 import by.ld38.game.core.component.car.Car;
-import by.ld38.game.core.component.physics.Force;
-import by.ld38.game.core.component.physics.Velocity;
-import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
-import by.ld38.game.core.component.rad.RadDirection;
+import by.ld38.game.core.component.rad.RadForce;
 import by.ld38.game.core.component.rad.RadPosition;
-import by.ld38.game.core.system.car.CarMovement;
+import by.ld38.game.core.component.rad.RadVelocity;
 import by.ld38.game.core.system.car.RadCarControlSystem;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.debug.ShowDebugInfo;
 import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.rad.MoveRadDirection;
 import by.ld38.game.core.system.rad.Rad2PositionSystem;
+import by.ld38.game.core.system.rad.RadForceSystem;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
@@ -43,17 +41,15 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldMovementSystem(),
                 new Rad2PositionSystem(),
                 new MoveRadDirection(),
-                new ShowDebugInfo()//,
-                //new WorldClosedSystem (),
-                //new VirtualCameraFollow(),
-                //new VirtualCameraRenderPosition()
+                new ShowDebugInfo(),
+                new RadForceSystem()
         );
     }
 
     @Override
     protected void initialize(World world) {
         // create player
-        int id = EntityHelper.createEntity(world, Position.class, RadDirection.class, RadPosition.class, Car.class, Player.class,
+        int id = EntityHelper.createEntity(world, Position.class, RadVelocity.class, RadForce.class, RadPosition.class, Car.class, Player.class,
                 Animation.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
 

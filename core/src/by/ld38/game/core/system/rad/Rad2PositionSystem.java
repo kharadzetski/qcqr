@@ -4,6 +4,7 @@ import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.component.rad.RadDirection;
 import by.ld38.game.core.component.rad.RadPosition;
+import by.ld38.game.util.DegreeUtil;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.EntitySubscription;
@@ -27,8 +28,8 @@ public class Rad2PositionSystem extends IteratingSystem {
 
     @Override
     protected void process(int entityId) {
-        cameraControl();
-        //userCamera();
+        //cameraControl();
+        userCamera();
 
         Position p = world.getMapper(Position.class).get(entityId);
         RadPosition rp = world.getMapper(RadPosition.class).get(entityId);
@@ -81,9 +82,9 @@ public class Rad2PositionSystem extends IteratingSystem {
         IntBag PlayerEntityId = subscription.getEntities();
         RadPosition pl =  world.getMapper(RadPosition.class).get(PlayerEntityId.get(0));
 
-        camera.alpha = - pl.alpha;
+        camera.alpha =  pl.alpha;
         camera.beta = (float) (180 * Math.PI / 180) - pl.beta ;//- 0.5f;
-        camera.gamma = (float)  pl.gamma;
+        camera.gamma = pl.gamma;
     }
 
 }
