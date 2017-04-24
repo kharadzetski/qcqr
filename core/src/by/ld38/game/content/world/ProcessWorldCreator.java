@@ -73,7 +73,7 @@ public class ProcessWorldCreator extends WorldCreator {
         size = world.getMapper(Size.class).get(id);
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
-        for (int i = 1; i < 40; i ++) {
+        for (int i = 1; i < 10; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
                     Animation.class, MaxVelocity.class, Collides.class, Size.class);
             pos = world.getMapper(WorldPosition.class).get(id);
@@ -85,7 +85,30 @@ public class ProcessWorldCreator extends WorldCreator {
             size.height = animation.model.getFrameHeight();
             size.width = animation.model.getFrameWidth();
         }
-
+        for (int i = 1; i < 10; i ++) {
+            id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
+                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+            pos = world.getMapper(WorldPosition.class).get(id);
+            pos.worldX = i * 100;
+            pos.worldY = i * 45;
+            world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_GREEN.getModel();
+            animation = world.getMapper(Animation.class).get(id);
+            size = world.getMapper(Size.class).get(id);
+            size.height = animation.model.getFrameHeight();
+            size.width = animation.model.getFrameWidth();
+        }
+        for (int i = 1; i < 10; i ++) {
+            id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
+                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+            pos = world.getMapper(WorldPosition.class).get(id);
+            pos.worldX = i * 100;
+            pos.worldY = i * 45;
+            world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_BLUE.getModel();
+            animation = world.getMapper(Animation.class).get(id);
+            size = world.getMapper(Size.class).get(id);
+            size.height = animation.model.getFrameHeight();
+            size.width = animation.model.getFrameWidth();
+        }
 
         // create background
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
