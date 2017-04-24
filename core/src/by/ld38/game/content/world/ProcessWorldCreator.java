@@ -57,6 +57,9 @@ public class ProcessWorldCreator extends WorldCreator {
 
         id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
                 Animation.class, MaxVelocity.class, Collides.class, Size.class);
+        WorldPosition pos = world.getMapper(WorldPosition.class).get(id);
+        pos.worldX = 100;
+        pos.worldY = 45;
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_VIOLET.getModel();
         animation = world.getMapper(Animation.class).get(id);
         size = world.getMapper(Size.class).get(id);
