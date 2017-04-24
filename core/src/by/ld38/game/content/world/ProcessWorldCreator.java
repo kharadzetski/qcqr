@@ -10,6 +10,7 @@ import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.energy.Energy;
 import by.ld38.game.core.component.hud.HudSpeedArrow;
 import by.ld38.game.core.component.hud.HudSpeedMeter;
+import by.ld38.game.core.component.item.Quarktus;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.Test.ShowDebugSystem;
@@ -18,12 +19,14 @@ import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.hud.EnergyHudSystem;
+import by.ld38.game.core.system.item.QurktusCollisionSystem;
 import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
 import by.ld38.game.util.EntityHelper;
 import com.artemis.World;
+import javafx.geometry.Pos;
 
 /**
  * @author SharK729
@@ -46,13 +49,16 @@ public class ProcessWorldCreator extends WorldCreator {
                 new ShowDebugSystem(),
                 new CollisionSystem(),
                 new DummyAiSystem(),
-                new EnergyHudSystem()
+                new EnergyHudSystem(),
+                new QurktusCollisionSystem()
         );
     }
 
     @Override
     protected void initialize(World world) {
         createHud(world);
+        for (int i=0; i< 30; i++) generateRandomQuarktus(world);
+
         // create player
         int id = EntityHelper.createEntity(
                 world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
@@ -216,5 +222,13 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_ARROW.getModel();
         world.getMapper(Position.class).get(id).x = arrowX;
         world.getMapper(Position.class).get(id).y = arrowY;
+    }
+
+    private void generateRandomQuarktus(World world) {
+        int id = EntityHelper.createEntity(world, Animation.class, Position.class, Quarktus.class, WorldPosition.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.QUARKTUS.getModel();
+        world.getMapper(WorldPosition.class).get(id).worldX = (float) (Math.random()* QcqrConstants.WorldMaxX);
+        world.getMapper(WorldPosition.class).get(id).worldY = (float) (Math.random()* QcqrConstants.WorldMaxY);
+
     }
 }
