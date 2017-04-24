@@ -26,7 +26,7 @@ public enum AnimationAssets {
     BACKGROUND_EARTH7(TextureAssets.BACKGROUND_EARTH7, 1280, 720, 0f, 0),
     BACKGROUND_EARTH8(TextureAssets.BACKGROUND_EARTH8, 1280, 720, 0f, 0),
     BACKGROUND_EARTH9(TextureAssets.BACKGROUND_EARTH9, 1280, 720, 0f, 0),
-    PlanetOffset ( TextureAssets.PlanetOffset, 1280, 720, 0f, 0),
+    PLANET_OFFSET( TextureAssets.PLANET_OFFSET, 1280, 720, 0.3f, 0, 1, 2, 3, 4, 5,6 ,7 ,8),
 
     QUARKTUS(TextureAssets.QUARKTUS, 70, 70, 0.2f, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)
 ;

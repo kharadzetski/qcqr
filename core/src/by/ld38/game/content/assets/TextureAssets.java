@@ -30,7 +30,7 @@ public enum TextureAssets {
     ENERGY_ARROW("sprites/hud/arrow.png"),
 
     QUARKTUS("sprites/world/quarktus_sheet_70x70.png"),
-    PlanetOffset ("sprites/world/space_texture.png")
+    PLANET_OFFSET("sprites/world/space_texture_anim_1280x720.png")
     ;
     private Texture texture;
 

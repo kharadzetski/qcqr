@@ -14,7 +14,6 @@ import by.ld38.game.core.component.hud.HudSpeedMeter;
 import by.ld38.game.core.component.item.Quarktus;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
-import by.ld38.game.core.system.Test.ShowDebugSystem;
 import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
@@ -177,7 +176,7 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).z = -92;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class);
-        world.getMapper(Animation.class).get(id).model = AnimationAssets.PlanetOffset.getModel();
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.PLANET_OFFSET.getModel();
         world.getMapper(Position.class).get(id).x = -QcqrConstants.SCREEN_WIDTH/2;
         world.getMapper(Position.class).get(id).y = -QcqrConstants.SCREEN_HEIGHT/2;
         world.getMapper(Position.class).get(id).z = 1000;
