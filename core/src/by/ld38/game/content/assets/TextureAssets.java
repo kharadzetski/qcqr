@@ -28,8 +28,7 @@ public enum TextureAssets {
     ENERGY_METER("sprites/hud/energy-meter.png"),
     ENERGY_ARROW("sprites/hud/arrow.png"),
 
-    QUARKTUS("sprites/world/quarktus_sheet_70x70.png")
-    ENERGY_ARROW("sprites/hud/arrow.png"),
+    QUARKTUS("sprites/world/quarktus_sheet_70x70.png"),
     PlanetOffset ("sprites/world/space_texture.png")
     ;
     private Texture texture;
