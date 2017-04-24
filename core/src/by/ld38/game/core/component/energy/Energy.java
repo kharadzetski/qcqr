@@ -9,5 +9,5 @@ import com.artemis.Component;
 public class Energy extends Component {
     public static final float MAX_VALUE = 180;
 
-    public float value;
+    public float value = 10;
 }

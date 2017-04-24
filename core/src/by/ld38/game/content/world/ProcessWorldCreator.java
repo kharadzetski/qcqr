@@ -45,7 +45,6 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldMovementSystem(),
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
-                new DummyAiSystem(),
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
                 new CollisionSystem(),
@@ -63,7 +62,7 @@ public class ProcessWorldCreator extends WorldCreator {
         // create player
         int id = EntityHelper.createEntity(
                 world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
-                Animation.class, MaxVelocity.class, Size.class, Collides.class
+                Animation.class, MaxVelocity.class, Size.class, Collides.class, Energy.class
         );
         Animation animation = world.getMapper(Animation.class).get(id);
         animation.model = AnimationAssets.CAR_HERO_TURBO.getModel();
@@ -255,12 +254,14 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_METER.getModel();
         world.getMapper(Position.class).get(id).x = hudX;
         world.getMapper(Position.class).get(id).y = hudY;
+        world.getMapper(Position.class).get(id).z = 10000;
 
         // arrow
         id = EntityHelper.createEntity(world, Animation.class, Position.class, HudSpeedArrow.class);
         world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_ARROW.getModel();
         world.getMapper(Position.class).get(id).x = arrowX;
         world.getMapper(Position.class).get(id).y = arrowY;
+        world.getMapper(Position.class).get(id).z = 10000;
     }
 
 
