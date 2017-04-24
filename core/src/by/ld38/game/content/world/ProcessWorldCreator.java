@@ -9,6 +9,7 @@ import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.Test.ShowDebugSystem;
+import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
@@ -38,7 +39,8 @@ public class ProcessWorldCreator extends WorldCreator {
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
-                new CollisionSystem()
+                new CollisionSystem(),
+                new DummyAiSystem()
         );
     }
 
