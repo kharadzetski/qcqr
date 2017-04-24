@@ -4,11 +4,9 @@ import by.ld38.game.content.assets.AnimationAssets;
 import by.ld38.game.content.constant.QcqrConstants;
 import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
+import by.ld38.game.core.component.base.Size;
 import by.ld38.game.core.component.car.Car;
-import by.ld38.game.core.component.physics.Force;
-import by.ld38.game.core.component.physics.MaxVelocity;
-import by.ld38.game.core.component.physics.Velocity;
-import by.ld38.game.core.component.physics.WorldPosition;
+import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.Test.ShowDebugSystem;
 import by.ld38.game.core.system.car.CarMovement;
@@ -39,16 +37,31 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
-                new ShowDebugSystem()
+                new ShowDebugSystem(),
+                new CollisionSystem()
         );
     }
 
     @Override
     protected void initialize(World world) {
         // create player
-        int id = EntityHelper.createEntity(world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
-                Animation.class, MaxVelocity.class);
-        world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
+        int id = EntityHelper.createEntity(
+                world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
+                Animation.class, MaxVelocity.class, Size.class, Collides.class
+        );
+        Animation animation = world.getMapper(Animation.class).get(id);
+        animation.model = AnimationAssets.CAR_HERO.getModel();
+        Size size = world.getMapper(Size.class).get(id);
+        size.height = animation.model.getFrameHeight();
+        size.width = animation.model.getFrameWidth();
+
+        id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
+                Animation.class, MaxVelocity.class, Collides.class, Size.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_VIOLET.getModel();
+        animation = world.getMapper(Animation.class).get(id);
+        size = world.getMapper(Size.class).get(id);
+        size.height = animation.model.getFrameHeight();
+        size.width = animation.model.getFrameWidth();
 
 
         // create background

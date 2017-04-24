@@ -14,7 +14,7 @@ public enum AnimationAssets {
     CAR_HERO(TextureAssets.CAR_HERO, 45, 60, 0.3f, 0, 1),
     CAR_ENEMY_GREEN(TextureAssets.CAR_ENEMY_GREEN, 45, 59, 0.3f, 0, 1),
     CAR_ENEMY_BLUE(TextureAssets.CAR_ENEMY_BLUE, 45, 59, 0.3f, 0, 1),
-    CAR_ENEMY_VIOLET(TextureAssets.CAR_ENEMY_VIOLET, 45, 59, 0.3f, 0, 1),
+    CAR_ENEMY_VIOLET(TextureAssets.CAR_ENEMY_VIOLET, 45, 58, 0.3f, 0, 1),
     BACKGROUND_EARTH0(TextureAssets.BACKGROUND_EARTH0, 1280, 720, 0f, 0),
     BACKGROUND_EARTH1(TextureAssets.BACKGROUND_EARTH1, 1280, 720, 0f, 0),
     BACKGROUND_EARTH2(TextureAssets.BACKGROUND_EARTH2, 1280, 720, 0f, 0),
