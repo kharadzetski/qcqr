@@ -11,10 +11,11 @@ import com.badlogic.gdx.graphics.Texture;
 public enum TextureAssets {
     TEST("test/test.png"),
     CAR_HERO("test/Car_Hero_90x60.png"),
+    CAR_HERO_TURBO ("sprites/cars/hero_turbo_45x75.png"),
     CAR_ENEMY_GREEN("sprites/cars/enemy_green_45x59.png"),
     CAR_ENEMY_BLUE("sprites/cars/enemy_blue_45x59.png"),
     CAR_ENEMY_VIOLET("sprites/cars/enemy_violet_45x58.png"),
-    BACKGROUND_EARTH0 ("sprites/world/earth_1280x720.png"),
+    BACKGROUND_EARTH0 ("sprites/world/eart_texture_2.png"),
     BACKGROUND_EARTH1("sprites/world/Earth_texture1.png"),
     BACKGROUND_EARTH2("sprites/world/Earth_texture2.png"),
     BACKGROUND_EARTH3("sprites/world/Earth_texture3.png"),
@@ -24,9 +25,21 @@ public enum TextureAssets {
     BACKGROUND_EARTH7("sprites/world/Earth_texture7.png"),
     BACKGROUND_EARTH8("sprites/world/Earth_texture8.png"),
     BACKGROUND_EARTH9("sprites/world/Earth_texture9.png"),
+    MAIN_MENU("sprites/menu/main_menu.png"),
+
     ENERGY_METER("sprites/hud/energy-meter.png"),
+
+    QUARKTUS("sprites/world/quarktus_sheet_70x70.png"),
     ENERGY_ARROW("sprites/hud/arrow.png"),
-    PlanetOffset ("sprites/world/space_texture.png")
+    PlanetOffset ("sprites/world/space_texture.png"),
+    CREDITS_SCREEN("sprites/menu/credits.png"),
+    PLANET_OFFSET("sprites/world/space_texture_anim_1280x720.png"),
+    INTRO_TEXT_1("sprites/intro/intro_screen_1.png"),
+    INTRO_TEXT_2("sprites/intro/intro_screen_2.png"),
+    INTRO_BG("sprites/intro/intro_bg.png"),
+    INTRO_FLAME("sprites/intro/fire_intro_1280x178.png"),
+    INTRO_ROCKS("sprites/intro/rocks_1280x720.png"),
+    INTRO_TIRES("sprites/intro/tires-trace.png"),
     ;
     private Texture texture;
 

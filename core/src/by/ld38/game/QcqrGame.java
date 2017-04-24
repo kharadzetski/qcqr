@@ -1,7 +1,7 @@
 package by.ld38.game;
 
 import by.ld38.game.content.constant.QcqrConstants;
-import by.ld38.game.content.world.ProcessWorldCreator;
+import by.ld38.game.content.world.StartScreenCreator;
 import com.artemis.World;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -33,6 +33,6 @@ public class QcqrGame {
         camera.position.set(0, 0, 0);// set to zero
         camera.update();
         batch.setProjectionMatrix(camera.combined);
-        world = new ProcessWorldCreator().create();
+        world = new StartScreenCreator().create();
     }
 }

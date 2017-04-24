@@ -11,14 +11,15 @@ import by.ld38.game.core.component.car.PlanetScale;
 import by.ld38.game.core.component.energy.Energy;
 import by.ld38.game.core.component.hud.HudSpeedArrow;
 import by.ld38.game.core.component.hud.HudSpeedMeter;
+import by.ld38.game.core.component.item.Quarktus;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
-import by.ld38.game.core.system.Test.ShowDebugSystem;
 import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.hud.EnergyHudSystem;
+import by.ld38.game.core.system.item.QurktusCollisionSystem;
 import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
@@ -44,20 +45,27 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
-                new ShowDebugSystem(),
-                new CollisionSystem()
+                new PlanetScalingSystem(),
+                //new ShowDebugSystem(),
+                new CollisionSystem(),
+                new DummyAiSystem(),
+                new EnergyHudSystem(),
+                new QurktusCollisionSystem()
         );
     }
 
     @Override
     protected void initialize(World world) {
+        createHud(world);
+        for (int i=0; i< 30; i++) generateRandomQuarktus(world);
+
         // create player
         int id = EntityHelper.createEntity(
                 world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
-                Animation.class, MaxVelocity.class, Size.class, Collides.class
+                Animation.class, MaxVelocity.class, Size.class, Collides.class, Energy.class
         );
         Animation animation = world.getMapper(Animation.class).get(id);
-        animation.model = AnimationAssets.CAR_HERO.getModel();
+        animation.model = AnimationAssets.CAR_HERO_TURBO.getModel();
         Size size = world.getMapper(Size.class).get(id);
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
@@ -72,9 +80,9 @@ public class ProcessWorldCreator extends WorldCreator {
         size = world.getMapper(Size.class).get(id);
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
-        for (int i = 1; i < 100; i ++) {
+        for (int i = 1; i < 10; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
-                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+                    Animation.class, MaxVelocity.class, PlanetScale.class, Collides.class, Size.class);
             pos = world.getMapper(WorldPosition.class).get(id);
             pos.worldX = i * 100;
             pos.worldY = i * 45;
@@ -84,7 +92,30 @@ public class ProcessWorldCreator extends WorldCreator {
             size.height = animation.model.getFrameHeight();
             size.width = animation.model.getFrameWidth();
         }
-
+        for (int i = 1; i < 10; i ++) {
+            id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
+                    Animation.class, MaxVelocity.class, Collides.class, PlanetScale.class ,Size.class);
+            pos = world.getMapper(WorldPosition.class).get(id);
+            pos.worldX = i * 100;
+            pos.worldY = i * 45;
+            world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_GREEN.getModel();
+            animation = world.getMapper(Animation.class).get(id);
+            size = world.getMapper(Size.class).get(id);
+            size.height = animation.model.getFrameHeight();
+            size.width = animation.model.getFrameWidth();
+        }
+        for (int i = 1; i < 10; i ++) {
+            id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
+                    Animation.class, MaxVelocity.class, Collides.class,PlanetScale.class, Size.class);
+            pos = world.getMapper(WorldPosition.class).get(id);
+            pos.worldX = i * 100;
+            pos.worldY = i * 45;
+            world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_BLUE.getModel();
+            animation = world.getMapper(Animation.class).get(id);
+            size = world.getMapper(Size.class).get(id);
+            size.height = animation.model.getFrameHeight();
+            size.width = animation.model.getFrameWidth();
+        }
 
         // create background
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
@@ -146,7 +177,7 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).z = -92;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class);
-        world.getMapper(Animation.class).get(id).model = AnimationAssets.PlanetOffset.getModel();
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.PLANET_OFFSET.getModel();
         world.getMapper(Position.class).get(id).x = -QcqrConstants.SCREEN_WIDTH/2;
         world.getMapper(Position.class).get(id).y = -QcqrConstants.SCREEN_HEIGHT/2;
         world.getMapper(Position.class).get(id).z = 1000;
@@ -207,5 +238,38 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(WorldPosition.class).get(id).worldX =QcqrConstants.WorldMaxX/2 +QcqrConstants.WorldMaxX/6;
         world.getMapper (WorldPosition.class).get(id).worldY =QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
         world.getMapper(Position.class).get(id).z = -92;*/
+
+
+    }
+
+    private void createHud(World world) {
+        // meter
+        float hudX = -600;
+        float hudY = 200;
+        float arrowX = hudX + 28;
+        float arrowY = hudY - 27;
+
+
+        int id = EntityHelper.createEntity(world, Animation.class, Position.class, HudSpeedMeter.class);
+        world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_METER.getModel();
+        world.getMapper(Position.class).get(id).x = hudX;
+        world.getMapper(Position.class).get(id).y = hudY;
+        world.getMapper(Position.class).get(id).z = 10000;
+
+        // arrow
+        id = EntityHelper.createEntity(world, Animation.class, Position.class, HudSpeedArrow.class);
+        world.getMapper(Animation.class).get(id).model = SpeedHudAssets.SPEED_ARROW.getModel();
+        world.getMapper(Position.class).get(id).x = arrowX;
+        world.getMapper(Position.class).get(id).y = arrowY;
+        world.getMapper(Position.class).get(id).z = 10000;
+    }
+
+
+    private void generateRandomQuarktus(World world) {
+        int id = EntityHelper.createEntity(world, Animation.class, Position.class, Quarktus.class, WorldPosition.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.QUARKTUS.getModel();
+        world.getMapper(WorldPosition.class).get(id).worldX = (float) (Math.random()* QcqrConstants.WorldMaxX);
+        world.getMapper(WorldPosition.class).get(id).worldY = (float) (Math.random()* QcqrConstants.WorldMaxY);
+
     }
 }
