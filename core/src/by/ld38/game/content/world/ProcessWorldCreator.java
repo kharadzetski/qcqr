@@ -23,6 +23,7 @@ import by.ld38.game.core.system.rad.Rad2PositionSystem;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
 import by.ld38.game.core.system.render.TextRenderSystem;
+import by.ld38.game.util.DegreeUtil;
 import by.ld38.game.util.EntityHelper;
 import com.artemis.World;
 
@@ -68,5 +69,14 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).x = -100;//QcqrConstants.SCREEN_WIDTH/2;
         world.getMapper(Position.class).get(id).y = -100;//QcqrConstants.SCREEN_HEIGHT/2;
         world.getMapper(Position.class).get(id).z = 0f;
+
+        for (int i=0; i < 40; i++) generateRandomDot(world);
+    }
+
+    private void generateRandomDot(World world) {
+        int id = EntityHelper.createEntity(world, Position.class, Animation.class, RadPosition.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.SMALL_ROUND.getModel();
+        world.getMapper(RadPosition.class).get(id).alpha = DegreeUtil.deg2rad((float) Math.random()*360);//QcqrConstants.SCREEN_WIDTH/2;
+        world.getMapper(RadPosition.class).get(id).beta = DegreeUtil.deg2rad((float) Math.random()*360);//QcqrConstants.SCREEN_HEIGHT/2;
     }
 }

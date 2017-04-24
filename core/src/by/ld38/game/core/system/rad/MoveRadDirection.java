@@ -24,8 +24,16 @@ public class MoveRadDirection extends IteratingSystem {
 
         float round = (float) (360 * Math.PI / 180);
 
-        rp.alpha += rd.speed * cos(rd.angle);
+        rp.alpha += rd.speed * cos(rd.angle) ;
         rp.beta += rd.speed * sin(rd.angle);
+
+        //float nA = (float) (rp.alpha * cos(rd.angle) - rp.beta * sin(rd.angle));
+        //float nB = (float) (rp.alpha * sin(rd.angle) + rp.beta * cos(rd.angle));
+        //nB += rd.speed;
+        //rp.alpha = (float) (nA * cos(round - rd.angle) - nB * sin(round - rd.angle));
+        //rp.beta = (float) (nA * sin(round - rd.angle) + nB * cos(round - rd.angle));
+
+        //rp.alpha = (float) (rp.beta * cos(rp.alpha) + rp.alpha * sin(rp.beta) );
 
         if (rd.angle > round) rd.angle -= round;
         if (rd.angle < 0) rd.angle = round - rd.angle;

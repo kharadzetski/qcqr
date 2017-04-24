@@ -23,6 +23,7 @@ public enum TextureAssets {
     BACKGROUND_EARTH7("sprites/world/Earth_texture7.png"),
     BACKGROUND_EARTH8("sprites/world/Earth_texture8.png"),
     BACKGROUND_EARTH9("sprites/world/Earth_texture9.png"),
+    SMALL_ROUND("test/planet_50x50.png"),
     CORE("sprites/core_200x200.png")
     ;
     private Texture texture;
