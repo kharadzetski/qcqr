@@ -35,7 +35,11 @@ public enum TextureAssets {
     CREDITS_SCREEN("sprites/menu/credits.png"),
     PLANET_OFFSET("sprites/world/space_texture_anim_1280x720.png"),
     INTRO_TEXT_1("sprites/intro/intro_screen_1.png"),
-    INTRO_TEXT_2("sprites/intro/intro_screen_2.png")
+    INTRO_TEXT_2("sprites/intro/intro_screen_2.png"),
+    INTRO_BG("sprites/intro/intro_bg.png"),
+    INTRO_FLAME("sprites/intro/fire_intro_1280x178.png"),
+    INTRO_ROCKS("sprites/intro/rocks_1280x720.png"),
+    INTRO_TIRES("sprites/intro/tires-trace.png"),
     ;
     private Texture texture;
 

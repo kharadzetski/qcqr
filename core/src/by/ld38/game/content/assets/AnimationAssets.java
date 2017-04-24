@@ -33,6 +33,10 @@ public enum AnimationAssets {
     CREDITS_SCREEN(TextureAssets.CREDITS_SCREEN, 1280, 720, 0f),
     INTRO_TEXT_1(TextureAssets.INTRO_TEXT_1, 1280, 720, 0f),
     INTRO_TEXT_2(TextureAssets.INTRO_TEXT_2, 1280, 720, 0f),
+    INTRO_BG(TextureAssets.INTRO_BG, 1280, 720, 0f),
+    INTRO_FLAME(TextureAssets.INTRO_FLAME, 1280, 178, .2f, 0,1,2,3,4,5,6,7,8,9,10,11),
+    INTRO_ROCKS(TextureAssets.INTRO_ROCKS, 1280, 720, .2f, 0,1,2,3,4,5,6,7,8,9,10,11),
+    INTRO_TIRES(TextureAssets.INTRO_TIRES, 83, 317, 0f)
     ;
     private AnimationModel model;
 
