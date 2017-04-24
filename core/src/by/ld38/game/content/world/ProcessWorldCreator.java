@@ -45,8 +45,7 @@ public class ProcessWorldCreator extends WorldCreator {
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
-                new CollisionSystem(),
-                new DummyAiSystem()
+                new CollisionSystem()
         );
     }
 
@@ -63,10 +62,20 @@ public class ProcessWorldCreator extends WorldCreator {
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
 
+        id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class, PlanetScale.class,
+                Animation.class, MaxVelocity.class, Collides.class, Size.class);
+        WorldPosition pos = world.getMapper(WorldPosition.class).get(id);
+        pos.worldX = 100;
+        pos.worldY = 45;
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_VIOLET.getModel();
+        animation = world.getMapper(Animation.class).get(id);
+        size = world.getMapper(Size.class).get(id);
+        size.height = animation.model.getFrameHeight();
+        size.width = animation.model.getFrameWidth();
         for (int i = 1; i < 100; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
                     Animation.class, MaxVelocity.class, Collides.class, Size.class);
-            WorldPosition pos = world.getMapper(WorldPosition.class).get(id);
+            pos = world.getMapper(WorldPosition.class).get(id);
             pos.worldX = i * 100;
             pos.worldY = i * 45;
             world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_VIOLET.getModel();
@@ -136,6 +145,11 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper (WorldPosition.class).get(id).worldY =QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
         world.getMapper(Position.class).get(id).z = -92;
 
+        id = EntityHelper.createEntity(world, Position.class, Animation.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.PlanetOffset.getModel();
+        world.getMapper(Position.class).get(id).x = -QcqrConstants.SCREEN_WIDTH/2;
+        world.getMapper(Position.class).get(id).y = -QcqrConstants.SCREEN_HEIGHT/2;
+        world.getMapper(Position.class).get(id).z = 1000;
 /*        id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH1.getModel();
         world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2-QcqrConstants.WorldMaxX/2;
