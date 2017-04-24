@@ -9,6 +9,8 @@ import by.ld38.game.core.component.base.Text;
 import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.car.Collidable;
 import by.ld38.game.core.component.car.Health;
+import by.ld38.game.core.component.energy.Energy;
+import by.ld38.game.core.component.energy.PlanetEnergy;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.component.rad.RadForce;
 import by.ld38.game.core.component.rad.RadPosition;
@@ -56,7 +58,7 @@ public class ProcessWorldCreator extends WorldCreator {
     protected void initialize(World world) {
         // create player
         int id = EntityHelper.createEntity(world, Position.class, Collidable.class, Health.class, RadVelocity.class,
-                RadForce.class, RadPosition.class, Car.class, Player.class, Animation.class);
+                RadForce.class, RadPosition.class, Car.class, Player.class, Animation.class, Energy.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
 
 
@@ -72,6 +74,8 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).y = -100;//QcqrConstants.SCREEN_HEIGHT/2;
         world.getMapper(Position.class).get(id).z = 0f;
 
+        id = EntityHelper.createEntity(world, PlanetEnergy.class);
+
         for (int i=0; i < 40; i++) generateRandomDot(world);
         for (int i=0; i< 10; i++) generateEnemy(world);
     }
@@ -85,7 +89,7 @@ public class ProcessWorldCreator extends WorldCreator {
 
     private void generateEnemy(World world) {
         int id = EntityHelper.createEntity(world, Position.class, Collidable.class, Health.class, RadVelocity.class,
-                RadForce.class, RadPosition.class, Car.class, Animation.class);
+                RadForce.class, RadPosition.class, Car.class, Animation.class, Energy.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_GREEN.getModel();
         world.getMapper(RadPosition.class).get(id).alpha = DegreeUtil.deg2rad((float) Math.random()*360);//QcqrConstants.SCREEN_WIDTH/2;
         world.getMapper(RadPosition.class).get(id).beta = DegreeUtil.deg2rad((float) Math.random()*360);//QcqrConstants.SCREEN_HEIGHT/2;

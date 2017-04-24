@@ -3,8 +3,8 @@ package by.ld38.game.core.system.rad;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.car.Collidable;
 import by.ld38.game.core.component.car.Health;
-import by.ld38.game.core.component.physics.Force;
-import by.ld38.game.core.component.physics.Velocity;
+import by.ld38.game.core.component.energy.Energy;
+import by.ld38.game.core.component.energy.PlanetEnergy;
 import by.ld38.game.core.component.rad.RadForce;
 import by.ld38.game.core.component.rad.RadPosition;
 import by.ld38.game.core.component.rad.RadVelocity;
@@ -12,6 +12,7 @@ import by.ld38.game.util.BoxUtil;
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
 import com.artemis.ComponentMapper;
+import com.artemis.EntitySubscription;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -26,15 +27,23 @@ import static by.ld38.game.util.DegreeUtil.checkCoordinate;
  * @since 1.0
  */
 public class RadCollisionSystem extends BaseEntitySystem {
-    ComponentMapper<Health> hm;
+    ComponentMapper<Energy> em;
     ComponentMapper<Position> rpm;
     ComponentMapper<RadVelocity> vm;
     ComponentMapper<RadForce> fm;
+
+    PlanetEnergy planetEnergy;
 
     private float collideSize = 0.2f;
 
     public RadCollisionSystem() {
         super(Aspect.all(Health.class, RadForce.class, RadVelocity.class, RadPosition.class, Position.class, Collidable.class));
+    }
+
+    @Override
+    protected void begin() {
+        findPlanetEnergy();
+        super.begin();
     }
 
     @Override
@@ -64,8 +73,8 @@ public class RadCollisionSystem extends BaseEntitySystem {
     private void collision(int aId, int bId) {
         RadVelocity aV = vm.get(aId);
         RadVelocity bV = vm.get(bId);
-        Health aH = hm.get(aId);
-        Health bH = hm.get(bId);
+        Energy aH = em.get(aId);
+        Energy bH = em.get(bId);
 
         float dmg = Math.abs(aV.alpha - bV.alpha) + Math.abs(aV.beta - bV.beta) + Math.abs(aV.gamma - bV.gamma);
         aH.value -= dmg;
@@ -79,10 +88,21 @@ public class RadCollisionSystem extends BaseEntitySystem {
         bV.beta = dmg;
         //bV.gamma = dmg;
 
+        planetEnergy.value += dmg*10;
+        aH.value += dmg*10;
+        bH.value += dmg*10;
+
         doPop(aId);
     }
 
     private void doPop(int id) {
         System.out.println("COLLLLISSSION!!!");
+    }
+
+    private void findPlanetEnergy() {
+        if (planetEnergy != null) return;
+        EntitySubscription subscription = world.getAspectSubscriptionManager().get(Aspect.all(PlanetEnergy.class));
+        int planetId = subscription.getEntities().get(0);
+        planetEnergy = world.getMapper(PlanetEnergy.class).get(planetId);
     }
 }
