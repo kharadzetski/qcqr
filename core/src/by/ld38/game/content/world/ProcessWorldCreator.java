@@ -46,7 +46,7 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
-                new ShowDebugSystem(),
+                //new ShowDebugSystem(),
                 new CollisionSystem(),
                 new DummyAiSystem(),
                 new EnergyHudSystem(),
