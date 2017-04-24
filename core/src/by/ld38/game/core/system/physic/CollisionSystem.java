@@ -3,6 +3,8 @@ package by.ld38.game.core.system.physic;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.base.Size;
 import by.ld38.game.core.component.physics.Collides;
+import by.ld38.game.core.component.physics.Force;
+import by.ld38.game.core.component.physics.Velocity;
 import by.ld38.game.core.component.physics.WorldPosition;
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
@@ -17,12 +19,13 @@ import java.util.List;
 public class CollisionSystem extends BaseEntitySystem {
     ComponentMapper<Size> sm;
     ComponentMapper<Position> pm;
+    ComponentMapper<Force> fm;
     /**
      * Creates an entity system that uses the specified aspect as a matcher
      * against entities.
      */
     public CollisionSystem() {
-        super(Aspect.all(Size.class, WorldPosition.class, Collides.class));
+        super(Aspect.all(Size.class, WorldPosition.class, Collides.class, Velocity.class));
     }
 
     @Override
@@ -31,10 +34,18 @@ public class CollisionSystem extends BaseEntitySystem {
         List<Integer> checked = new ArrayList<>();
         for (int i = 0; i < intBag.size(); i++) {
             Integer entityId = intBag.get(i);
+            Force entityF = fm.get(entityId);
+            Position entityP = pm.get(entityId);
+            Size entityS = sm.get(entityId);
             if (!checked.contains(entityId)) {
                 Integer collidesWithId = checkCollides(entityId, intBag);
                 if (collidesWithId != null) {
-
+                    Force collidesWithF = fm.get(collidesWithId);
+                    Position collidesWithPosition = pm.get(collidesWithId);
+                    collidesWithF.x += entityF.x;
+                    collidesWithF.y += entityF.y;
+                    collidesWithPosition.x += Math.signum(entityF.x) * entityS.width/2;
+                    collidesWithPosition.y += Math.signum(entityF.y) * entityS.height/2;
                 }
                 checked.add(intBag.get(i));
             }
