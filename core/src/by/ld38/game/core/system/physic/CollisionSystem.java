@@ -35,17 +35,12 @@ public class CollisionSystem extends BaseEntitySystem {
         for (int i = 0; i < intBag.size(); i++) {
             Integer entityId = intBag.get(i);
             Force entityF = fm.get(entityId);
-            Position entityP = pm.get(entityId);
-            Size entityS = sm.get(entityId);
             if (!checked.contains(entityId)) {
                 Integer collidesWithId = checkCollides(entityId, intBag);
                 if (collidesWithId != null) {
                     Force collidesWithF = fm.get(collidesWithId);
-                    Position collidesWithPosition = pm.get(collidesWithId);
                     collidesWithF.x += entityF.x;
                     collidesWithF.y += entityF.y;
-                    collidesWithPosition.x += Math.signum(entityF.x) * entityS.width/2;
-                    collidesWithPosition.y += Math.signum(entityF.y) * entityS.height/2;
                 }
                 checked.add(intBag.get(i));
             }

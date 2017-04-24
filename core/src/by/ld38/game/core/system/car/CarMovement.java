@@ -25,6 +25,5 @@ public class CarMovement extends IteratingSystem {
         if (car.control.down) { force.y -= car.speedForce; }
         if (car.control.right) { force.x += car.speedForce; }
         if (car.control.left) { force.x -= car.speedForce; }
-        //car.control.reset();
     }
 }
