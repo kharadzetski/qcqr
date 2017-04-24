@@ -5,6 +5,7 @@ import by.ld38.game.content.assets.TextureAssets;
 import by.ld38.game.content.model.AnimationModel;
 import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
+import by.ld38.game.util.DegreeUtil;
 import com.artemis.Aspect;
 import com.artemis.BaseEntitySystem;
 
@@ -41,7 +42,12 @@ public class AnimationRenderSystem extends BaseEntitySystem {
         animation.current += model.getSpeed();
         if (animation.current > model.getSize()) animation.current = 0;
 
-        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y);
+        QcqrGame.getInstance().batch.draw(animation.region, position.x, position.y,
+                0,0,
+                animation.region.getRegionWidth(),
+                animation.region.getRegionHeight(),
+                position.scale, position.scale,
+                DegreeUtil.rad2dec(position.angle));
     }
 
     private int compareInt(int a, int b) {

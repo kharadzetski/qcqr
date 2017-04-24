@@ -14,4 +14,6 @@ public class DegreeUtil {
     public static float rad2dec(float degree) {
         return (float) (degree / Math.PI * 180);
     }
+
+    public static final float round = deg2rad(360);
 }

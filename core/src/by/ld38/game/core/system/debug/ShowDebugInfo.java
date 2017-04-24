@@ -36,6 +36,7 @@ public class ShowDebugInfo extends BaseSystem {
         text.value = "Debug: \n" +
             "Rad.alpha: " + rad2dec( rp.alpha ) + "\n" +
             "Rad.beta: " + rad2dec( rp.beta ) + "\n" +
+            "Rad.gamma: " + rad2dec( rp.gamma ) + "\n" +
             "Direction: " + rad2dec( rd.angle )+ "\n" +
             "Speed: " + rd.speed;
     }

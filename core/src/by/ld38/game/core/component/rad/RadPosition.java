@@ -10,5 +10,6 @@ import com.artemis.Component;
 public class RadPosition extends Component {
     public float alpha;
     public float beta;
+    public float gamma;
     public float radius = QcqrConstants.RADIUS;
 }
