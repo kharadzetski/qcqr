@@ -238,4 +238,13 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper(Position.class).get(id).x = arrowX;
         world.getMapper(Position.class).get(id).y = arrowY;
     }
+
+
+    private void generateRandomQuarktus(World world) {
+        int id = EntityHelper.createEntity(world, Animation.class, Position.class, Quarktus.class, WorldPosition.class);
+        world.getMapper(Animation.class).get(id).model = AnimationAssets.QUARKTUS.getModel();
+        world.getMapper(WorldPosition.class).get(id).worldX = (float) (Math.random()* QcqrConstants.WorldMaxX);
+        world.getMapper(WorldPosition.class).get(id).worldY = (float) (Math.random()* QcqrConstants.WorldMaxY);
+
+    }
 }
