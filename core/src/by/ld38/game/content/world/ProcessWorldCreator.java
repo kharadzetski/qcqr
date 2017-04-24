@@ -10,6 +10,7 @@ import by.ld38.game.core.component.car.PlanetScale;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.Test.ShowDebugSystem;
+import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
@@ -37,7 +38,6 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldMovementSystem(),
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
-                new PlanetScalingSystem(),
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
                 new CollisionSystem()
@@ -67,6 +67,18 @@ public class ProcessWorldCreator extends WorldCreator {
         size = world.getMapper(Size.class).get(id);
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
+        for (int i = 1; i < 100; i ++) {
+            id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
+                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+            WorldPosition pos = world.getMapper(WorldPosition.class).get(id);
+            pos.worldX = i * 100;
+            pos.worldY = i * 45;
+            world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_VIOLET.getModel();
+            animation = world.getMapper(Animation.class).get(id);
+            size = world.getMapper(Size.class).get(id);
+            size.height = animation.model.getFrameHeight();
+            size.width = animation.model.getFrameWidth();
+        }
 
 
         // create background
