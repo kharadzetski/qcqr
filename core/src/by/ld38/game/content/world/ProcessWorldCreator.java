@@ -1,12 +1,16 @@
 package by.ld38.game.content.world;
 
 import by.ld38.game.content.assets.AnimationAssets;
+import by.ld38.game.content.assets.SpeedHudAssets;
 import by.ld38.game.content.constant.QcqrConstants;
 import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.base.Size;
 import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.car.PlanetScale;
+import by.ld38.game.core.component.energy.Energy;
+import by.ld38.game.core.component.hud.HudSpeedArrow;
+import by.ld38.game.core.component.hud.HudSpeedMeter;
 import by.ld38.game.core.component.physics.*;
 import by.ld38.game.core.component.player.Player;
 import by.ld38.game.core.system.Test.ShowDebugSystem;
@@ -14,6 +18,7 @@ import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.car.CarRotation;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
+import by.ld38.game.core.system.hud.EnergyHudSystem;
 import by.ld38.game.core.system.physic.*;
 import by.ld38.game.core.system.render.AnimationRenderSystem;
 import by.ld38.game.core.system.render.BlankScreenRenderSystem;
@@ -40,7 +45,8 @@ public class ProcessWorldCreator extends WorldCreator {
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
-                new CollisionSystem()
+                new CollisionSystem(),
+                new DummyAiSystem()
         );
     }
 
@@ -57,16 +63,6 @@ public class ProcessWorldCreator extends WorldCreator {
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
 
-        id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class, PlanetScale.class,
-                Animation.class, MaxVelocity.class, Collides.class, Size.class);
-        WorldPosition pos = world.getMapper(WorldPosition.class).get(id);
-        pos.worldX = 100;
-        pos.worldY = 45;
-        world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_ENEMY_VIOLET.getModel();
-        animation = world.getMapper(Animation.class).get(id);
-        size = world.getMapper(Size.class).get(id);
-        size.height = animation.model.getFrameHeight();
-        size.width = animation.model.getFrameWidth();
         for (int i = 1; i < 100; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
                     Animation.class, MaxVelocity.class, Collides.class, Size.class);
@@ -140,11 +136,6 @@ public class ProcessWorldCreator extends WorldCreator {
         world.getMapper (WorldPosition.class).get(id).worldY =QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
         world.getMapper(Position.class).get(id).z = -92;
 
-        id = EntityHelper.createEntity(world, Position.class, Animation.class);
-        world.getMapper(Animation.class).get(id).model = AnimationAssets.PlanetOffset.getModel();
-        world.getMapper(Position.class).get(id).x = -QcqrConstants.SCREEN_WIDTH/2;
-        world.getMapper(Position.class).get(id).y = -QcqrConstants.SCREEN_HEIGHT/2;
-        world.getMapper(Position.class).get(id).z = 10;
 /*        id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH1.getModel();
         world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2-QcqrConstants.WorldMaxX/2;

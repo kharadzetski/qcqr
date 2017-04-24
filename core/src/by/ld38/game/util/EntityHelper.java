@@ -1,7 +1,9 @@
 package by.ld38.game.util;
 
+import com.artemis.Aspect;
 import com.artemis.Component;
 import com.artemis.World;
+import com.artemis.utils.IntBag;
 
 import java.util.Arrays;
 
@@ -15,5 +17,9 @@ public class EntityHelper {
         Arrays.stream(types)
                 .forEach(type -> world.getMapper(type).create(id));
         return id;
+    }
+
+    public static IntBag findEntities(World world, Class<? extends Component>... types) {
+        return world.getAspectSubscriptionManager().get(Aspect.all(types)).getEntities();
     }
 }
