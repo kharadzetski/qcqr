@@ -33,7 +33,7 @@ public class ShowDebugInfo extends BaseSystem {
 
 
         Text text = world.getMapper(Text.class).get(textId);
-        text.value = "Debug: " +
+        text.value = "Debug: \n" +
             "Rad.alpha: " + rad2dec( rp.alpha ) + "\n" +
             "Rad.beta: " + rad2dec( rp.beta ) + "\n" +
             "Direction: " + rad2dec( rd.angle )+ "\n" +

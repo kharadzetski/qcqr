@@ -9,6 +9,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
  * @since 1.0
  */
 public class Text extends Component{
-    public String value;
+    public String value = "";
     public BitmapFont font = FontAssets.BASIC.getFont();
 }

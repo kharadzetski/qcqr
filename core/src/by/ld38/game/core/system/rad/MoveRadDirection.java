@@ -22,7 +22,16 @@ public class MoveRadDirection extends IteratingSystem {
         RadDirection rd = world.getMapper(RadDirection.class).get(entityId);
         RadPosition rp = world.getMapper(RadPosition.class).get(entityId);
 
+        float round = (float) (360 * Math.PI / 180);
+
         rp.alpha += rd.speed * cos(rd.angle);
         rp.beta += rd.speed * sin(rd.angle);
+
+        if (rd.angle > round) rd.angle -= round;
+        if (rd.angle < 0) rd.angle = round - rd.angle;
+        if (rp.alpha > round) rp.alpha -= round;
+        if (rp.alpha < 0) rp.alpha = round - rp.alpha;
+        if (rp.beta > round) rp.beta -= round;
+        if (rp.beta < 0) rp.beta = round - rp.beta;
     }
 }

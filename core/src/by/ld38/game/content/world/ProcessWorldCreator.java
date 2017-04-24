@@ -59,14 +59,14 @@ public class ProcessWorldCreator extends WorldCreator {
 
         // create debug text
         id = EntityHelper.createEntity(world, Text.class, Debug.class, Position.class);
-        world.getMapper(Position.class).get(id).x = 15f;
-        world.getMapper(Position.class).get(id).y = 15f;
+        world.getMapper(Position.class).get(id).x = - QcqrConstants.SCREEN_WIDTH/2;
+        world.getMapper(Position.class).get(id).y = - QcqrConstants.SCREEN_HEIGHT/2 + 200;
         world.getMapper(Position.class).get(id).z = 1000f;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CORE.getModel();
-        world.getMapper(Position.class).get(id).x = QcqrConstants.SCREEN_WIDTH/2;
-        world.getMapper(Position.class).get(id).y = QcqrConstants.SCREEN_HEIGHT/2;
+        world.getMapper(Position.class).get(id).x = -100;//QcqrConstants.SCREEN_WIDTH/2;
+        world.getMapper(Position.class).get(id).y = -100;//QcqrConstants.SCREEN_HEIGHT/2;
         world.getMapper(Position.class).get(id).z = 0f;
     }
 }
