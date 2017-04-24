@@ -6,6 +6,7 @@ import by.ld38.game.core.component.base.Animation;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.car.Car;
 import by.ld38.game.core.component.physics.Force;
+import by.ld38.game.core.component.physics.MaxVelocity;
 import by.ld38.game.core.component.physics.Velocity;
 import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
@@ -31,20 +32,22 @@ public class ProcessWorldCreator extends WorldCreator {
                 new TextRenderSystem(),
                 new KeyboardCardControlSystem(),
                 new MoveObjectSystem(),
+                new ApplyMaxVelocitySystem(),
                 new CarMovement(),
                 new CarRotation(),
                 new WorldMovementSystem(),
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
-                new ShowDebugSystem());
+                new ShowDebugSystem()
+        );
     }
 
     @Override
     protected void initialize(World world) {
         // create player
         int id = EntityHelper.createEntity(world, Position.class,WorldPosition.class, Force.class, Velocity.class, Car.class, Player.class,
-                Animation.class);
+                Animation.class, MaxVelocity.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.CAR_HERO.getModel();
 
 
