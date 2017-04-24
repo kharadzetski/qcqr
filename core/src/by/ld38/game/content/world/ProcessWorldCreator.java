@@ -43,6 +43,7 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldMovementSystem(),
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
+                new DummyAiSystem(),
                 new VirtualCameraRenderPosition(),
                 new ShowDebugSystem(),
                 new CollisionSystem()
@@ -57,7 +58,7 @@ public class ProcessWorldCreator extends WorldCreator {
                 Animation.class, MaxVelocity.class, Size.class, Collides.class
         );
         Animation animation = world.getMapper(Animation.class).get(id);
-        animation.model = AnimationAssets.CAR_HERO.getModel();
+        animation.model = AnimationAssets.CAR_HERO_TURBO.getModel();
         Size size = world.getMapper(Size.class).get(id);
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
@@ -72,7 +73,7 @@ public class ProcessWorldCreator extends WorldCreator {
         size = world.getMapper(Size.class).get(id);
         size.height = animation.model.getFrameHeight();
         size.width = animation.model.getFrameWidth();
-        for (int i = 1; i < 100; i ++) {
+        for (int i = 1; i < 40; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
                     Animation.class, MaxVelocity.class, Collides.class, Size.class);
             pos = world.getMapper(WorldPosition.class).get(id);

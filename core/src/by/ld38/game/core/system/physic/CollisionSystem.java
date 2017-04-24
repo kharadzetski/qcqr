@@ -43,9 +43,18 @@ public class CollisionSystem extends BaseEntitySystem {
                     Velocity collidesWithF = vm.get(collidesWithId);
                     Collides coll = cm.get(collidesWithId);
                     coll.framesColliding = QcqrConstants.CollideIdleFrames;
-                    collidesWithF.x -= (collidesWithF.x - entityF.x)*QcqrConstants.collideHack;
-                    collidesWithF.y -= (collidesWithF.y - entityF.y)*QcqrConstants.collideHack;
-
+                   // collidesWithF.x -= (collidesWithF.x - entityF.x)*QcqrConstants.collideHack;
+                   // collidesWithF.y -= (collidesWithF.y - entityF.y)*QcqrConstants.collideHack;
+                    collidesWithF.x = -collidesWithF.x;
+                    collidesWithF.y = -collidesWithF.y;
+                    if (collidesWithF.x>0)
+                        collidesWithF.x += QcqrConstants.collideHack;
+                    else
+                        collidesWithF.x -= QcqrConstants.collideHack;
+                    if (collidesWithF.y>0)
+                        collidesWithF.y += QcqrConstants.collideHack;
+                    else
+                        collidesWithF.y -= QcqrConstants.collideHack;
                 }
                 checked.add(intBag.get(i));
             }
