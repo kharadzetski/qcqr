@@ -16,16 +16,16 @@ public class WorldClosedSystem extends IteratingSystem {
     protected void process(int entityId) {
         WorldPosition wp = wpm.get(entityId);
         if (wp.worldX > QcqrConstants.WorldMaxX) {
-            wp.worldX -= QcqrConstants.WorldMinX;
+            wp.worldX -= QcqrConstants.WorldMaxX;
         }
         if (wp.worldX < QcqrConstants.WorldMinX) {
-            wp.worldX  = QcqrConstants.WorldMaxX - Math.abs(wp.worldX);
+            wp.worldX  = QcqrConstants.WorldMaxX - Math.abs(QcqrConstants.WorldMinX - wp.worldX);
         }
         if (wp.worldY > QcqrConstants.WorldMaxY) {
             wp.worldY -= QcqrConstants.WorldMaxY;
         }
         if (wp.worldY <QcqrConstants.WorldMinY) {
-            wp.worldY = QcqrConstants.WorldMaxY - Math.abs(wp.worldY);
+            wp.worldY = QcqrConstants.WorldMaxY - Math.abs( QcqrConstants.WorldMinY - wp.worldY);
         }
     }
 }

@@ -25,19 +25,29 @@ public class VirtualCameraRenderPosition  extends IteratingSystem {
         Position pos = pm.get(entityId);
         WorldPosition wp = wpm.get(entityId);
         float deltaX1 = wp.worldX - pl.worldCameraX;
-        float deltaX2 = wp.worldX + QcqrConstants.WorldMaxX - pl.worldCameraX;
+        float deltaX2 = wp.worldX + QcqrConstants.WorldMaxX*2 - pl.worldCameraX;
         float deltaY1 = wp.worldY - pl.worldCameraY;
-        float deltaY2 = wp.worldY + QcqrConstants.WorldMaxY - pl.worldCameraY;
-
-        if ( Math.abs (deltaX1) <= Math.abs (deltaX2) )
+        float deltaY2 = wp.worldY + QcqrConstants.WorldMaxY*2 - pl.worldCameraY;
+        float dist1 =  (float)Math.sqrt( (deltaX1*deltaX1) + (deltaY1*deltaY1));
+        float dist2 =  (float)Math.sqrt( (deltaX2*deltaX2) + (deltaY2*deltaY2));
+        if ( dist1 <= dist2 ) {
             pos.x = deltaX1;
-        else if (Math.abs (deltaX2) < Math.abs (deltaX1))
-            pos.x = deltaX2;
-
-        if ( Math.abs (deltaY1) <= Math.abs (deltaY2) )
             pos.y = deltaY1;
-        else if (Math.abs (deltaY1) < Math.abs (deltaY2))
+        }
+        else{
+            pos.x = deltaX2;
             pos.y = deltaY2;
+        }
+
+  //      if ( Math.abs (deltaX1) <= Math.abs (deltaX2) )
+  //          pos.x = deltaX1;
+   //     else if (Math.abs (deltaX2) < Math.abs (deltaX1))
+   //         pos.x = deltaX2;
+
+   //     if ( Math.abs (deltaY1) <= Math.abs (deltaY2) )
+    //        pos.y = deltaY1;
+    //    else if (Math.abs (deltaY1) < Math.abs (deltaY2))
+     //       pos.y = deltaY2;
 
 
     }

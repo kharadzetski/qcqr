@@ -9,6 +9,7 @@ import by.ld38.game.core.component.physics.Force;
 import by.ld38.game.core.component.physics.Velocity;
 import by.ld38.game.core.component.physics.WorldPosition;
 import by.ld38.game.core.component.player.Player;
+import by.ld38.game.core.system.Test.ShowDebugSystem;
 import by.ld38.game.core.system.car.CarMovement;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.physic.*;
@@ -33,7 +34,8 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldMovementSystem(),
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
-                new VirtualCameraRenderPosition());
+                new VirtualCameraRenderPosition(),
+                new ShowDebugSystem());
     }
 
     @Override
@@ -47,60 +49,60 @@ public class ProcessWorldCreator extends WorldCreator {
         // create background
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH1.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = -QcqrConstants.WorldMaxX/3;
-        world.getMapper (WorldPosition.class).get(id).worldY = +QcqrConstants.WorldMaxY/3;
+        world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2-QcqrConstants.WorldMaxX/2;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 +QcqrConstants.WorldMaxY/6;
         world.getMapper(Position.class).get(id).z = -100;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH2.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = 0;
-        world.getMapper (WorldPosition.class).get(id).worldY = +QcqrConstants.WorldMaxY/3;
+        world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2-QcqrConstants.WorldMaxX/6;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 +QcqrConstants.WorldMaxY/6;
         world.getMapper(Position.class).get(id).z = -99;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH3.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = +QcqrConstants.WorldMaxX/3;
-        world.getMapper (WorldPosition.class).get(id).worldY = +QcqrConstants.WorldMaxY/3;
+        world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2 +QcqrConstants.WorldMaxX/6;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 +QcqrConstants.WorldMaxY/6;
         world.getMapper(Position.class).get(id).z = -98;
 
 
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH4.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = -QcqrConstants.WorldMaxX/3;
-        world.getMapper (WorldPosition.class).get(id).worldY = 0;
-        world.getMapper(Position.class).get(id).z = -100;
+        world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2 -QcqrConstants.WorldMaxX/2;
+        world.getMapper (WorldPosition.class).get(id).worldY =QcqrConstants.WorldMaxY/2  -QcqrConstants.WorldMaxY/6;
+        world.getMapper(Position.class).get(id).z = -97;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH5.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = 0;
-        world.getMapper (WorldPosition.class).get(id).worldY = 0;
-        world.getMapper(Position.class).get(id).z = -99;
+        world.getMapper(WorldPosition.class).get(id).worldX =QcqrConstants.WorldMaxX/2 -QcqrConstants.WorldMaxX/6;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/6;
+        world.getMapper(Position.class).get(id).z = -96;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH6.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = +QcqrConstants.WorldMaxX/3;
-        world.getMapper (WorldPosition.class).get(id).worldY = 0;
-        world.getMapper(Position.class).get(id).z = -99;
+        world.getMapper(WorldPosition.class).get(id).worldX =QcqrConstants.WorldMaxX/2 +QcqrConstants.WorldMaxX/6;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/6;
+        world.getMapper(Position.class).get(id).z = -95;
 
 
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH7.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = -QcqrConstants.WorldMaxX/3;
-        world.getMapper (WorldPosition.class).get(id).worldY = -QcqrConstants.WorldMaxY/3;
-        world.getMapper(Position.class).get(id).z = -100;
+        world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2 -QcqrConstants.WorldMaxX/2;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
+        world.getMapper(Position.class).get(id).z = -94;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH8.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = 0;
-        world.getMapper (WorldPosition.class).get(id).worldY = -QcqrConstants.WorldMaxY/3;
-        world.getMapper(Position.class).get(id).z = -99;
+        world.getMapper(WorldPosition.class).get(id).worldX = QcqrConstants.WorldMaxX/2 -QcqrConstants.WorldMaxX/6;
+        world.getMapper (WorldPosition.class).get(id).worldY = QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
+        world.getMapper(Position.class).get(id).z = -93;
 
         id = EntityHelper.createEntity(world, Position.class, Animation.class, WorldPosition.class);
         world.getMapper(Animation.class).get(id).model = AnimationAssets.BACKGROUND_EARTH9.getModel();
-        world.getMapper(WorldPosition.class).get(id).worldX = +QcqrConstants.WorldMaxX/3;
-        world.getMapper (WorldPosition.class).get(id).worldY = -QcqrConstants.WorldMaxY/3;
-        world.getMapper(Position.class).get(id).z = -99;
+        world.getMapper(WorldPosition.class).get(id).worldX =QcqrConstants.WorldMaxX/2 +QcqrConstants.WorldMaxX/6;
+        world.getMapper (WorldPosition.class).get(id).worldY =QcqrConstants.WorldMaxY/2 -QcqrConstants.WorldMaxY/2;
+        world.getMapper(Position.class).get(id).z = -92;
     }
 }
