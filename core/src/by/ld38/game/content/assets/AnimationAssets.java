@@ -12,7 +12,7 @@ import by.ld38.game.content.model.AnimationModel;
 public enum AnimationAssets {
     TEST(TextureAssets.TEST, 45, 60, 0.2f, 1, 2, 3),
     CAR_HERO(TextureAssets.CAR_HERO, 45, 60, 0.3f, 0, 1),
-    CAR_HERO_TURBO (TextureAssets.CAR_HERO_TURBO, 45, 75, 0.3f, 0,1,2,3,4,5),
+    CAR_HERO_TURBO (TextureAssets.CAR_HERO_TURBO, 45, 75, 0.3f, 0,1,2,3,4),
     CAR_ENEMY_GREEN(TextureAssets.CAR_ENEMY_GREEN, 45, 59, 0.3f, 0, 1),
     CAR_ENEMY_BLUE(TextureAssets.CAR_ENEMY_BLUE, 45, 59, 0.3f, 0, 1),
     CAR_ENEMY_VIOLET(TextureAssets.CAR_ENEMY_VIOLET, 45, 58, 0.3f, 0, 1),
