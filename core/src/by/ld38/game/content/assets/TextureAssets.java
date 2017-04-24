@@ -25,8 +25,11 @@ public enum TextureAssets {
     BACKGROUND_EARTH7("sprites/world/Earth_texture7.png"),
     BACKGROUND_EARTH8("sprites/world/Earth_texture8.png"),
     BACKGROUND_EARTH9("sprites/world/Earth_texture9.png"),
+
     ENERGY_METER("sprites/hud/energy-meter.png"),
     ENERGY_ARROW("sprites/hud/arrow.png"),
+
+    QUARKTUS("sprites/world/quarktus_sheet_70x70.png"),
     PlanetOffset ("sprites/world/space_texture.png")
     ;
     private Texture texture;

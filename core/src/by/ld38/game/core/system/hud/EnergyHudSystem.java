@@ -36,7 +36,7 @@ public class EnergyHudSystem extends BaseEntitySystem {
             energy = world.getMapper(Energy.class).get(playerId);
         }
 
-        setRandomValue();
+        //setRandomValue();
         Position arrow = world.getMapper(Position.class).get(arrowId);
         float length = 20;
         arrow.angle = -energy.value;

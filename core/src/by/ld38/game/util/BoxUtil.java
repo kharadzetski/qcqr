@@ -19,6 +19,6 @@ public class BoxUtil {
         float xc2 = x2 + w2/2;
         float yc2 = y2 + h2/2;
 
-        return Math.abs(xc2 - xc1) > (hw1 + hw2) && Math.abs(yc2 - yc1) > (hh1 + hh2);
+        return Math.abs(xc2 - xc1) < (hw1 + hw2) && Math.abs(yc2 - yc1) < (hh1 + hh2);
     }
 }
