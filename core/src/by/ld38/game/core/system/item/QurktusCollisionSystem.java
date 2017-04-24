@@ -36,7 +36,7 @@ public class QurktusCollisionSystem extends IteratingSystem {
         if (BoxUtil.checkCollision(playerPosition.worldX, playerPosition.worldY, 60,60,
                 quark.worldX, quark.worldY, 70, 70)) {
             world.delete(entityId);
-            energy.value += 5;
+            energy.value += 10;
         }
     }
 }

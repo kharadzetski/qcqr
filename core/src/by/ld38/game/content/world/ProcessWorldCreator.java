@@ -45,6 +45,7 @@ public class ProcessWorldCreator extends WorldCreator {
                 new WorldClosedSystem (),
                 new VirtualCameraFollow(),
                 new VirtualCameraRenderPosition(),
+                new PlanetScalingSystem(),
                 //new ShowDebugSystem(),
                 new CollisionSystem(),
                 new DummyAiSystem(),
@@ -81,7 +82,7 @@ public class ProcessWorldCreator extends WorldCreator {
         size.width = animation.model.getFrameWidth();
         for (int i = 1; i < 10; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
-                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+                    Animation.class, MaxVelocity.class, PlanetScale.class, Collides.class, Size.class);
             pos = world.getMapper(WorldPosition.class).get(id);
             pos.worldX = i * 100;
             pos.worldY = i * 45;
@@ -93,7 +94,7 @@ public class ProcessWorldCreator extends WorldCreator {
         }
         for (int i = 1; i < 10; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
-                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+                    Animation.class, MaxVelocity.class, Collides.class, PlanetScale.class ,Size.class);
             pos = world.getMapper(WorldPosition.class).get(id);
             pos.worldX = i * 100;
             pos.worldY = i * 45;
@@ -105,7 +106,7 @@ public class ProcessWorldCreator extends WorldCreator {
         }
         for (int i = 1; i < 10; i ++) {
             id = EntityHelper.createEntity(world, Position.class, WorldPosition.class, Force.class, Velocity.class, Car.class,
-                    Animation.class, MaxVelocity.class, Collides.class, Size.class);
+                    Animation.class, MaxVelocity.class, Collides.class,PlanetScale.class, Size.class);
             pos = world.getMapper(WorldPosition.class).get(id);
             pos.worldX = i * 100;
             pos.worldY = i * 45;

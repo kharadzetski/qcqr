@@ -19,6 +19,7 @@ public class QcqrConstants {
     public static float MaxScale = 1f;
     public static float TextereRenderOffset = 100;
     public static int CollideIdleFrames = 20;
-    public static float collideHack = 2f;
+    public static float collideHack = 4f;
+    public static float MaxCameraOffset = 300;
 
 }
