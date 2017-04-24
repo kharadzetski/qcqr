@@ -17,6 +17,8 @@ public class QcqrConstants {
     public static float TextereRenderOffset = 100;
 
     public static float RADIUS = 1000;
+    public static float MIN_RADIUS = 200;
+    public static float MAX_RADIUS = 3000;
 
-    public static float MAX_ENERGY = 1000;
+    public static float MAX_ENERGY = 5000;
 }

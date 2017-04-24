@@ -7,5 +7,5 @@ import com.artemis.Component;
  * @since 1.0
  */
 public class Energy extends Component {
-    public float value;
+    public float value = 0;
 }

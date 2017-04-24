@@ -88,15 +88,16 @@ public class RadCollisionSystem extends BaseEntitySystem {
         bV.beta = dmg;
         //bV.gamma = dmg;
 
-        planetEnergy.value += dmg*10;
-        aH.value += dmg*10;
-        bH.value += dmg*10;
+        float energy = 2;//Math.max(25, Math.abs(dmg*10));
+        planetEnergy.value += energy;
+        aH.value += energy;
+        bH.value += energy;
 
         doPop(aId);
     }
 
     private void doPop(int id) {
-        System.out.println("COLLLLISSSION!!!");
+
     }
 
     private void findPlanetEnergy() {

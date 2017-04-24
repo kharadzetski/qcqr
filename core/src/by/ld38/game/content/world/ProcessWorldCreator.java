@@ -19,8 +19,8 @@ import by.ld38.game.core.system.ai.DummyAiSystem;
 import by.ld38.game.core.system.car.RadCarControlSystem;
 import by.ld38.game.core.system.control.KeyboardCardControlSystem;
 import by.ld38.game.core.system.debug.ShowDebugInfo;
+import by.ld38.game.core.system.energy.RadiusFromEnergySystem;
 import by.ld38.game.core.system.physic.*;
-import by.ld38.game.core.system.rad.MoveRadDirection;
 import by.ld38.game.core.system.rad.Rad2PositionSystem;
 import by.ld38.game.core.system.rad.RadCollisionSystem;
 import by.ld38.game.core.system.rad.RadForceSystem;
@@ -50,7 +50,8 @@ public class ProcessWorldCreator extends WorldCreator {
                 new ShowDebugInfo(),
                 new RadForceSystem(),
                 new RadCollisionSystem(),
-                new DummyAiSystem()
+                new DummyAiSystem(),
+                new RadiusFromEnergySystem()
         );
     }
 
