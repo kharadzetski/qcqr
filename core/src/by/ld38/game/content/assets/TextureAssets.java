@@ -11,10 +11,11 @@ import com.badlogic.gdx.graphics.Texture;
 public enum TextureAssets {
     TEST("test/test.png"),
     CAR_HERO("test/Car_Hero_90x60.png"),
+    CAR_HERO_TURBO ("sprites/cars/hero_turbo_45x75.png"),
     CAR_ENEMY_GREEN("sprites/cars/enemy_green_45x59.png"),
     CAR_ENEMY_BLUE("sprites/cars/enemy_blue_45x59.png"),
     CAR_ENEMY_VIOLET("sprites/cars/enemy_violet_45x58.png"),
-    BACKGROUND_EARTH0 ("sprites/world/earth_1280x720.png"),
+    BACKGROUND_EARTH0 ("sprites/world/eart_texture_2.png"),
     BACKGROUND_EARTH1("sprites/world/Earth_texture1.png"),
     BACKGROUND_EARTH2("sprites/world/Earth_texture2.png"),
     BACKGROUND_EARTH3("sprites/world/Earth_texture3.png"),
