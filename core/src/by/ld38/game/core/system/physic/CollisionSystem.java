@@ -1,5 +1,6 @@
 package by.ld38.game.core.system.physic;
 
+import by.ld38.game.content.constant.QcqrConstants;
 import by.ld38.game.core.component.base.Position;
 import by.ld38.game.core.component.base.Size;
 import by.ld38.game.core.component.physics.Collides;
@@ -19,7 +20,8 @@ import java.util.List;
 public class CollisionSystem extends BaseEntitySystem {
     ComponentMapper<Size> sm;
     ComponentMapper<Position> pm;
-    ComponentMapper<Force> fm;
+    ComponentMapper<Velocity> vm;
+    ComponentMapper <Collides> cm;
     /**
      * Creates an entity system that uses the specified aspect as a matcher
      * against entities.
@@ -34,13 +36,16 @@ public class CollisionSystem extends BaseEntitySystem {
         List<Integer> checked = new ArrayList<>();
         for (int i = 0; i < intBag.size(); i++) {
             Integer entityId = intBag.get(i);
-            Force entityF = fm.get(entityId);
+            Velocity entityF = vm.get(entityId);
             if (!checked.contains(entityId)) {
                 Integer collidesWithId = checkCollides(entityId, intBag);
                 if (collidesWithId != null) {
-                    Force collidesWithF = fm.get(collidesWithId);
-                    collidesWithF.x += entityF.x;
-                    collidesWithF.y += entityF.y;
+                    Velocity collidesWithF = vm.get(collidesWithId);
+                    Collides coll = cm.get(collidesWithId);
+                    coll.framesColliding = QcqrConstants.CollideIdleFrames;
+                    collidesWithF.x -= (collidesWithF.x - entityF.x)*QcqrConstants.collideHack;
+                    collidesWithF.y -= (collidesWithF.y - entityF.y)*QcqrConstants.collideHack;
+
                 }
                 checked.add(intBag.get(i));
             }

@@ -11,4 +11,5 @@ public class Position extends Component {
     public float y;
     public float z = 100f; // Rendering order
     public float angle = 0;
+    public float scale = 1;
 }

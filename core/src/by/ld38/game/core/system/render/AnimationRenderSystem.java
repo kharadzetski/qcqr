@@ -46,8 +46,8 @@ public class AnimationRenderSystem extends BaseEntitySystem {
                 ,animation.region.getRegionHeight()/2,
                 animation.region.getRegionWidth(),
                 animation.region.getRegionHeight(),
-                1,
-                1,
+                position.scale,
+                position.scale,
                 position.angle);
     }
 
